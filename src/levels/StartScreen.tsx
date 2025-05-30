@@ -23,13 +23,13 @@ export const StartScreen = () => {
 
                     <h4>¿Cuál es su sintaxis?</h4>
                     <p>Para declarar un estado, primero hay que importar el hook <b>useState</b>:</p>
-                    <div style={{ width: "20%" }}>
+                    <div style={{ width: "40%" }}>
                         <SyntaxHighlighter language="javascript" style={okaidia}>
                             {`import { useState } from "react"; `}
                         </SyntaxHighlighter>
                     </div>
                     <p>Y luego definimos nuestro estado:</p>
-                    <div style={{ width: "20%" }}>
+                    <div style={{ width: "40%" }}>
                         <SyntaxHighlighter language="javascript" style={okaidia}>
                             const [text, setText] = useState("")
                         </SyntaxHighlighter>
