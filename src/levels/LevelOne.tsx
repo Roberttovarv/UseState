@@ -112,7 +112,7 @@ export const LevelOne = () => {
           <h2 style={subHeadingStyle}>
             Resultado
           </h2>
-          <p style={textStyle}>Aquí verás lo que pasa cuando cambias el estado.</p>
+          <p style={textStyle}>Aquí verás lo que pasa cuando cambias el estado inicial.</p>
           <input
             type="text"
             placeholder="Escribe algo..."
@@ -122,7 +122,7 @@ export const LevelOne = () => {
           />
 
           <p style={{ color: "#ccc", fontSize: "18px" }}>
-            {text ? `Texto actualizado: ${text}` : "Aquí aparecerá el texto actualizado"}
+            {/* {text ? `Texto actualizado: ${text}` : "Aquí aparecerá el texto actualizado"} */}
           </p>
         </div>
       </div>
@@ -130,9 +130,3 @@ export const LevelOne = () => {
   );
 }
 
-{/* <textarea
-style={textArea}
-onChange={handleText}
-value={text}
-placeholder={`Cambia los valores del estado para que entiendas su funcionalidad.\n\n`}
-/> */}

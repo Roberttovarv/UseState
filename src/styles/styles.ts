@@ -2,9 +2,12 @@ import type { CSSProperties } from "react";
 
 export const containerStyle: CSSProperties = {
     display: "flex",
+    justifyContent: "center",
+    width: "100vw",
     height: "100vh",
     fontFamily: "sans-serif",
-    backgroundColor: "#1e1e1e", // fondo general
+    backgroundColor: "#1e1e1e",
+    overflow: "hidden"
 };
 
 export const leftPanelStyle: CSSProperties = {
@@ -12,8 +15,9 @@ export const leftPanelStyle: CSSProperties = {
     padding: "2rem",
     overflowY: "auto",
     borderRight: "1px solid #333",
-    backgroundColor: "#2c2c2c", // fondo oscuro panel izquierdo
-    color: "#f0f0f0", // texto claro
+    backgroundColor: "#2c2c2c", 
+    color: "#f0f0f0",
+    overflow: "hidden"
 };
 
 export const rightPanelStyle: CSSProperties = {
