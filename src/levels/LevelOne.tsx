@@ -8,10 +8,10 @@ import {
   headingStyle,
   subHeadingStyle,
   textStyle,
-  textArea,
   textInput,
   buttonStyle,
 } from "../styles/styles.ts";
+import { CustomButton } from "../components/CustomButton.tsx";
 
 export const LevelOne = () => {
   const [text, setText] = useState<string>("");
@@ -45,10 +45,10 @@ export const LevelOne = () => {
         </p>
         <p style={textStyle}>
           Para lograrlo el código de <b>{`<input>`}</b> tendrá dos atributos clave, que nos ayudarán a que el valor de lo que hay en el cuadro sea <b>userInput</b>.
-          <ul>
+        </p>
+          <ul style={textStyle}>
             <li>Uno de ellos es <b>value={"{}"}</b>, dónde añadiremos el valor de <b>userInput</b>, haciendo que texto del cuadro cambie dependiendo del valor de userInput.</li>
           </ul>
-        </p>
         <div>
           <div style={{ marginBottom: 20 }}>
             <label style={textStyle}>Prúebalo aquí</label>
@@ -57,13 +57,12 @@ export const LevelOne = () => {
             <div style={{
               display: "flex",
               flexWrap: "wrap",
-              alignItems: "center",             // centra verticalmente
-              gap: "0.4rem",                    // opcional: separa elementos
+              alignItems: "center",            
+              gap: "0.4rem",                    
               fontFamily: "consolas",
               backgroundColor: containerStyle.backgroundColor,
               borderRadius: 10,
-              padding: "10px",              // menos padding vertical
-              width: "100%"
+              padding: "10px",             
             }}>
               <span style={{ color: "purple" }}>const [</span>
               <span style={{ color: "yellow" }}>userInput</span>,
@@ -86,8 +85,8 @@ export const LevelOne = () => {
                   color: "lightgreen",
                   height: "1rem",
                   marginTop: 12,
-                  fontSize: "1em",         // iguala texto
-                  padding: "0.2em 0.4em",  // espaciado interno
+                  fontSize: "1em",         
+                  padding: "0.2em 0.4em",  
                   verticalAlign: "middle",
                 }}
               />
@@ -97,10 +96,7 @@ export const LevelOne = () => {
 
             </div>
             <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-              <button
-                style={{...buttonStyle}}
-                onClick={() => setUserInput(text)}
-              >Probar</button>
+             <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
             </div>
           </div>
         </div>
