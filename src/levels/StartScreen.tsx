@@ -26,7 +26,7 @@ export const StartScreen = () => {
                     <p>Para declarar un estado, primero hay que importar el hook <b>useState</b>:</p>
                     <div style={{ width: "40%" }}>
                         <SyntaxHighlighter language="javascript" style={okaidia}>
-                            {`import { useState } from "react"; `}
+                            {`import { useState } from "react"; `} 
                         </SyntaxHighlighter>
                     </div>
                     <p>Y luego definimos nuestro estado:</p>

@@ -4,6 +4,7 @@ import { CustomButton } from "./components/CustomButton.tsx";
 import { LevelOne } from "./levels/LevelOne.tsx"
 import { StartScreen } from "./levels/StartScreen.tsx";
 import { useState } from "react";
+import { LevelTwo } from "./levels/LevelTwo.tsx";
 
 
 
@@ -12,10 +13,10 @@ import { useState } from "react";
 function App() {
 
   const [level, setLevel] = useState<Boolean>(false)
-  let  currentLevel = <StartScreen />
+  let  currentLevel = <LevelTwo />
 
   if (level) {
-    currentLevel = <LevelOne />
+    currentLevel = <LevelTwo />
   }
 
   return (

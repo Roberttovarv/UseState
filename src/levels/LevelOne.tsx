@@ -5,83 +5,90 @@ import {
   leftPanelStyle,
   rightPanelStyle,
   resultBoxStyle,
-  headingStyle,
-  subHeadingStyle,
   textStyle,
   textInput,
   ExerciseTextInput,
 } from "../styles/styles.ts";
+
 import { CustomButton } from "../components/CustomButton.tsx";
 import { ColoredText } from "../components/ColoredText.tsx";
 
 export const LevelOne = () => {
   const [text, setText] = useState<string>("");
-  const [code, setCode] = useState<string>("");
   const [userInput, setUserInput] = useState<string>("")
 
-  const handleText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(e.target.value)
-    console.log(text);
-  }
 
-  const handleCode = () => {
-    setCode(text)
-    setText("")
-    console.log(code)
-  }
   return (
     <div style={containerStyle}>
       <div style={leftPanelStyle}>
-        <h1 style={headingStyle}>
-          1.
-        </h1>
-        <h2 style={subHeadingStyle}>
-          Definiremos nuestro estado inicial:
-        </h2>
+        <h3>1.</h3>
+        <h2>Definiremos nuestro estado inicial:</h2>
         <p style={textStyle}>
-          Hemos creado un estado llamado <b>userInput</b>, el cual es actualizado por <b>setUserInput</b>.
+          Creamos un estado llamado <b>userInput</b>, que se actualiza mediante la función <b>setUserInput</b>.
         </p>
         <p style={textStyle}>
-          Para hacer que nuestro código funcione en el input de al lado tenemos que actualizar la información añadida.
+          Para que el campo de entrada {"<input>"} refleje y actualice este estado, utilizamos dos atributos clave:
+
         </p>
         <p style={textStyle}>
-          Para lograrlo el código de <b>{`<input>`}</b> tendrá dos atributos clave, que nos ayudarán a que el valor de lo que hay en el cuadro sea <b>userInput</b>.
+          El elemento <b>{`<input>`}</b> utiliza los atributos <b>value</b> y <b>onChange</b> para vincularse al estado y manejar cambios, que nos ayudarán a que el valor de lo que hay en el cuadro sea <b>userInput</b>.
         </p>
-          <ul style={textStyle}>
-            <li>Uno de ellos es <b>value={"{}"}</b>, dónde añadiremos el valor de <b>userInput</b>, haciendo que texto del cuadro cambie dependiendo del valor de userInput.</li>
+        <ul style={textStyle}>
+          <b>value</b>: Vincula el valor del campo al estado userInput, asegurando que el contenido del input siempre refleje el valor actual del estado.
           </ul>
         <div>
           <div style={{ marginBottom: 20 }}>
-            <label style={textStyle}><b>Prúebalo aquí ⬇</b></label>
+            <label style={textStyle}><b>Prúebalo aquí:</b></label>
           </div>
           <div style={{ width: "80%" }}>
-              
+            <div style={{ backgroundColor: containerStyle.backgroundColor, borderRadius: 5, padding: ".5rem" }}>
+
               <ColoredText
-              text={[
-                ["const [ ", "mediumorchid"],
-                ["userInput", "yellow"],
-                [", ", "white"],
-                ["setUserInput ", "lightblue"],
-                ["] ", "mediumorchid"],
-                ["= ", "white"],
-                ["useState", "lightblue"],
-                ["(", "mediumorchid"],
-                [`"`, "lightgreen"],
-                [<input type="text" 
-                  placeholder="Escribe algo..." 
-                  value={text} onChange={(e) => setText(e.target.value)}
-                  style={ExerciseTextInput}
+                text={[
+                  ["const [ ", "mediumorchid"],
+                  ["userInput", "palegoldenrod"],
+                  [", ", "white"],
+                  ["setUserInput ", "lightblue"],
+                  ["] ", "mediumorchid"],
+                  ["= ", "white"],
+                  ["useState", "lightblue"],
+                  ["(", "mediumorchid"],
+                  [`"`, "lightgreen"],
+                  [<input
+                    type="text"
+                    placeholder="Escribe algo..."
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    style={ExerciseTextInput}
                   />, undefined],
-                [`"`, "lightgreen"],
-                [")", "mediumorchid"]
-
-              ]} 
+                  [`"`, "lightgreen"],
+                  [")", "mediumorchid"]
+                ]}
               />
-
-
-            <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-             <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
+              <ColoredText text={[
+                ["<"],
+                ["input ", "indianred"]]} />
+              <ColoredText text={[
+                ["   type", "orange"],
+                ["=", "lightblue"],
+                ['"text"', "lightgreen"]
+              ]} />
+              <ColoredText text={[
+                ["   placeholder", "orange"],
+                ["=", "lightblue"],
+                ['"Añade la función para actualizar el estado"', "lightgreen"]
+              ]} />
+              <ColoredText text={[
+                ["   value", "orange"],
+                ["={", "lightblue"],
+                ["userInput", "palegoldenrod"],
+                ["}", "lightblue"]
+              ]} />
+              <ColoredText text={[["/>"]]} />
             </div>
+              <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
+                <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
+              </div>
           </div>
         </div>
 
@@ -89,9 +96,7 @@ export const LevelOne = () => {
 
       <div style={rightPanelStyle}>
         <div style={resultBoxStyle}>
-          <h2 style={subHeadingStyle}>
-            Resultado
-          </h2>
+          <h2>Resultado</h2>
           <p style={textStyle}>Aquí verás lo que pasa cuando cambias el estado inicial.</p>
           <input
             type="text"
@@ -102,7 +107,6 @@ export const LevelOne = () => {
           />
 
           <p style={{ color: "#ccc", fontSize: "18px" }}>
-            {/* {text ? `Texto actualizado: ${text}` : "Aquí aparecerá el texto actualizado"} */}
           </p>
         </div>
       </div>

@@ -12,17 +12,17 @@ export const containerStyle: CSSProperties = {
 
 export const leftPanelStyle: CSSProperties = {
     width: "50%",
-    padding: "2rem",
+    padding: ".5rem 2rem",
     overflowY: "auto",
     borderRight: "1px solid #333",
-    backgroundColor: "#2c2c2c", 
+    backgroundColor: "#2c2c2c",
     color: "#f0f0f0",
     overflow: "hidden"
 };
 
 export const rightPanelStyle: CSSProperties = {
     width: "50%",
-    padding: "2rem",
+    padding: ".5rem 2rem",
     overflowY: "auto",
     backgroundColor: "#1e1e1e", // fondo más oscuro panel derecho
     display: "flex",
@@ -41,19 +41,6 @@ export const resultBoxStyle: CSSProperties = {
     textAlign: "center",
 };
 
-export const headingStyle: CSSProperties = {
-    fontSize: "24px",
-    fontWeight: "bold",
-    marginBottom: "1rem",
-    color: "#ffffff",
-};
-
-export const subHeadingStyle: CSSProperties = {
-    fontSize: "20px",
-    fontWeight: 600,
-    marginBottom: "1rem",
-    color: "#ffffff",
-};
 
 export const textStyle: CSSProperties = {
     marginBottom: "1rem",
@@ -84,25 +71,27 @@ export const textInput: CSSProperties = {
 };
 
 export const buttonStyle: CSSProperties = {
-  marginTop: "1rem",
-  padding: "0.3rem 0.8rem", // menos espacio interior
-  fontSize: "14px",         // texto más pequeño
-  backgroundColor: "#2c2c2c",
-  border: "1px solid #666",
-  borderRadius: "4px",      // opcionalmente más pequeño
-  fontWeight: "bold",
-  cursor: "pointer",
-  transition: "background-color 0.3s ease"
+    marginTop: "1rem",
+    padding: "0.3rem 0.8rem", // menos espacio interior
+    fontSize: "14px",         // texto más pequeño
+    backgroundColor: "#2c2c2c",
+    border: "1px solid #666",
+    borderRadius: "4px",      // opcionalmente más pequeño
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease"
 }
 export const ExerciseTextInput: CSSProperties = {
-                  ...textInput,
-                  width: "auto",
-                  minWidth: "50",
-                  maxWidth: "110px",
-                  color: "lightgreen",
-                  height: ".7rem",
-                  marginTop: 15,
-                  fontSize: "1em",         
-                  padding: "0.2em 0.4em",  
-                  verticalAlign: "middle",
-                }
+    ...textInput,
+    width: 120,
+    color: "lightgreen",
+    height: ".7rem",
+    marginTop: 15,
+    fontSize: "1em",
+    padding: "0.2em 0.4em",
+    verticalAlign: "middle",
+    border: "1px solid #333",
+    borderRadius: "5px",
+    fontFamily: "monospace",
+    resize: "horizontal"
+}

@@ -24,3 +24,4 @@ export const CustomButton: FC<CustomButtonProps> = ({
         </button>
     )
 }
+
