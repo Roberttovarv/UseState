@@ -1,10 +1,11 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { rightPanelStyle } from '../styles/styles';
 
 export const StartScreen = () => {
     return (
         <>
-            <div style={{ display: "flex", height: "100vh" }}>
+            <div style={{ paddingLeft: 30 ,display: "flex", height: "100vh", backgroundColor: rightPanelStyle.backgroundColor }}>
                 <div
                     style={{
                         flex: 1,

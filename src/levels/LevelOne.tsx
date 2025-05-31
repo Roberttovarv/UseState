@@ -9,9 +9,10 @@ import {
   subHeadingStyle,
   textStyle,
   textInput,
-  buttonStyle,
+  ExerciseTextInput,
 } from "../styles/styles.ts";
 import { CustomButton } from "../components/CustomButton.tsx";
+import { ColoredText } from "../components/ColoredText.tsx";
 
 export const LevelOne = () => {
   const [text, setText] = useState<string>("");
@@ -51,50 +52,33 @@ export const LevelOne = () => {
           </ul>
         <div>
           <div style={{ marginBottom: 20 }}>
-            <label style={textStyle}>Prúebalo aquí</label>
+            <label style={textStyle}><b>Prúebalo aquí ⬇</b></label>
           </div>
           <div style={{ width: "80%" }}>
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",            
-              gap: "0.4rem",                    
-              fontFamily: "consolas",
-              backgroundColor: containerStyle.backgroundColor,
-              borderRadius: 10,
-              padding: "10px",             
-            }}>
-              <span style={{ color: "purple" }}>const [</span>
-              <span style={{ color: "yellow" }}>userInput</span>,
-              <span style={{ color: "lightblue" }}>setUserInput</span>
-              <span style={{ color: "purple" }}>]</span> =
-              <span style={{ color: "lightblue" }}> useState</span>
-              <span style={{ color: "purple" }}>(</span>
-              <span style={{ color: "lightgreen" }}>"</span>
+              
+              <ColoredText
+              text={[
+                ["const [ ", "mediumorchid"],
+                ["userInput", "yellow"],
+                [", ", "white"],
+                ["setUserInput ", "lightblue"],
+                ["] ", "mediumorchid"],
+                ["= ", "white"],
+                ["useState", "lightblue"],
+                ["(", "mediumorchid"],
+                [`"`, "lightgreen"],
+                [<input type="text" 
+                  placeholder="Escribe algo..." 
+                  value={text} onChange={(e) => setText(e.target.value)}
+                  style={ExerciseTextInput}
+                  />, undefined],
+                [`"`, "lightgreen"],
+                [")", "mediumorchid"]
 
-              <input
-                type="text"
-                placeholder="Escribe algo..."
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                style={{
-                  ...textInput,
-                  width: "auto",
-                  minWidth: "50",
-                  maxWidth: "110px",
-                  color: "lightgreen",
-                  height: "1rem",
-                  marginTop: 12,
-                  fontSize: "1em",         
-                  padding: "0.2em 0.4em",  
-                  verticalAlign: "middle",
-                }}
+              ]} 
               />
-              <span style={{ color: "lightgreen" }}>"</span>
-              <span style={{ color: "purple" }}>)</span>
 
 
-            </div>
             <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
              <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
             </div>

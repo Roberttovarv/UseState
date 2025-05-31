@@ -94,3 +94,15 @@ export const buttonStyle: CSSProperties = {
   cursor: "pointer",
   transition: "background-color 0.3s ease"
 }
+export const ExerciseTextInput: CSSProperties = {
+                  ...textInput,
+                  width: "auto",
+                  minWidth: "50",
+                  maxWidth: "110px",
+                  color: "lightgreen",
+                  height: ".7rem",
+                  marginTop: 15,
+                  fontSize: "1em",         
+                  padding: "0.2em 0.4em",  
+                  verticalAlign: "middle",
+                }
