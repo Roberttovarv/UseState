@@ -23,7 +23,7 @@ export const rightPanelStyle: CSSProperties = {
     width: "50%",
     padding: ".5rem 2rem",
     overflowY: "auto",
-    backgroundColor: "#1e1e1e", // fondo más oscuro panel derecho
+    backgroundColor: "#1e1e1e",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -31,18 +31,21 @@ export const rightPanelStyle: CSSProperties = {
 };
 
 export const resultBoxStyle: CSSProperties = {
-    backgroundColor: "#2c2c2c", // fondo de la caja de resultado
+    backgroundColor: "#2c2c2c",
     borderRadius: "16px",
     boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
     padding: "2rem",
     width: "100%",
     maxWidth: "400px",
     textAlign: "center",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "normal",
+    wordWrap: "break-word",
 };
 
 
 export const textStyle: CSSProperties = {
-    marginBottom: "1rem",
     color: "#cccccc",
 };
 
@@ -121,6 +124,12 @@ export const CorrectExerciseTextInput: CSSProperties = {
     fontFamily: "monospace",
     resize: "horizontal",
     backgroundColor: "#2c2c2c",
+}
+
+export const CodeContainer: CSSProperties = {
+    backgroundColor: " #1e1e1e",
+    borderRadius: 5,
+    padding: ".5rem"
 }
 
 export const injectShakeAnimation = () => {

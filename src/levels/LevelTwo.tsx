@@ -10,7 +10,8 @@ import {
     ExerciseTextInput,
     WrongExerciseTextInput,
     CorrectExerciseTextInput,
-    injectShakeAnimation
+    injectShakeAnimation,
+    CodeContainer
 } from "../styles/styles.ts";
 
 import { CustomButton } from "../components/CustomButton.tsx";
@@ -27,25 +28,33 @@ export const LevelTwo = () => {
 
     useEffect(() => {
         injectShakeAnimation()
-
     }, [])
 
-const handleUserExercise = () => {
-  if (valueText !== "userInput") {
-    setValueIsValid(false);
-    setUserInput("");
-    handleWrongInput();
-    return;
-  }
+    const validateValue = () => {
+        if (valueText !== "userInput") {
+            setValueIsValid(false);
+            setUserInput("");
+            handleWrongInput();
+            return;
+        }
+        setValueIsValid(true);
 
-  if (onChangeText !== "setUserInput(event.target.value)") {
-    setOnChangeIsValid(false);
-    setUserInput("");
-    handleWrongInput();
-    return;
-  }
-  setValueIsValid(true);
-  setOnChangeIsValid(true);
+
+    }
+
+    const validateOnChange = () => {
+        if (onChangeText.split(' ').join('') !== "setUserInput(event.target.value)") {
+            setOnChangeIsValid(false);
+            setUserInput("");
+            handleWrongInput();
+            return;
+        }
+        setOnChangeIsValid(true);
+    }
+
+    const handleUserExercise = () => {
+        validateOnChange()
+        validateValue()
     }
 
     const handleWrongInput = () => {
@@ -59,15 +68,12 @@ const handleUserExercise = () => {
     return (
         <div style={containerStyle}>
             <div style={leftPanelStyle}>
-                <h3 >2.</h3>
-                <h2>Actualizaremos el estado al hacer cambios en el input:</h2>
+                <h2>2 - Actualizaremos el estado al hacer cambios en el input:</h2>
                 <p style={textStyle}>
-                    Para que el estado cambie a medida que escribes, utilizamos el evento onChange.
+                    Para que el estado cambie a medida que escribes, utilizamos la propiedad onChange.
                     Cada vez que el usuario escribe algo nuevo, esta función se dispara y recibe un evento.
                     Ese evento tiene una propiedad llamada target, que apunta al elemento que generó el cambio, en este caso, el input.
                     Y dentro de ese target está el value, que es justo el texto que el usuario ha tecleado.
-
-
                 </p>
                 <p style={textStyle}>
                     Con esa información, simplemente llamamos a &nbsp;
@@ -76,35 +82,33 @@ const handleUserExercise = () => {
                         ["(", "orange"],
                         ["event.target.value", "indianred"],
                         [")", "orange"]
-                    ]} style={{display: "inline-flex"}}
+                    ]} style={{ display: "inline-flex" }}
                     />,
                     que actualiza nuestro estado con el nuevo texto.
                     Así, el input y el estado van siempre sincronizados, y cada letra que escribes se refleja en el estado.
                 </p>
-
+                <p style={textStyle}>
+                    Puedes probar primero en el recuadro de al lado antes de escribir tu código, así podrás visualizar los cambios.
+                </p>
                 <div>
                     <div style={{ marginBottom: 20 }}>
-                        <label style={textStyle}><b>Pruébalo aquí ⬇</b></label>
+                        <label style={textStyle}><b>Ahora, escribe tu código:</b></label>
                     </div>
                     <div style={{ width: "80%" }}>
-                        <div style={{
-                            backgroundColor: containerStyle.backgroundColor,
-                            borderRadius: 5,
-                            padding: ".5rem"
-                        }}>
+                        <div style={CodeContainer}>
                             <ColoredText text={[
                                 ["<"],
-                                ["input ", "indianred"]]} /> 
+                                ["input ", "indianred"]]} />
                             <ColoredText text={[
                                 ["   type", "orange"],
                                 ["=", "lightblue"],
                                 ['"text"', "lightgreen"]
-                            ]} /> 
+                            ]} />
                             <ColoredText text={[
                                 ["   placeholder", "orange"],
                                 ["=", "lightblue"],
                                 ['"Añade la función para actualizar el estado"', "lightgreen"]
-                            ]} /> 
+                            ]} />
                             <ColoredText text={[
                                 ["   value", "orange"],
                                 ["={", "lightblue"],
@@ -121,7 +125,7 @@ const handleUserExercise = () => {
                                                 : ExerciseTextInput}
                                 />, undefined],
                                 ["}", "lightblue"],
-                            ]} /> 
+                            ]} />
                             <ColoredText text={[
                                 ["   onChange", "orange"],
                                 ["={", "lightblue"],
@@ -172,7 +176,7 @@ const handleUserExercise = () => {
                         style={textInput}
                     />
                     <p style={{ color: "#ccc", fontSize: "18px" }}>
-                        {userInput ? `Texto actualizado: ${userInput}` : "Aquí aparecerá el texto actualizado"}
+                        {userInput ? `Texto actualizado: \n ${userInput}` : "Aquí aparecerá el texto actualizado"}
                     </p>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import { LevelOne } from "./levels/LevelOne.tsx"
 import { StartScreen } from "./levels/StartScreen.tsx";
 import { useState } from "react";
 import { LevelTwo } from "./levels/LevelTwo.tsx";
+import { LevelThree } from "./levels/LevelThree.tsx";
 
 function App() {
   const [level, setLevel] = useState<number>(0)
@@ -16,7 +17,7 @@ function App() {
       setLevel(level -1)
     }
         if (action === 2) {
-      if (level === 2) {
+      if (level === 3) {
         return
       }
       setLevel(level + 1)
@@ -31,6 +32,8 @@ function App() {
     currentLevel = <LevelOne />;
   } else if (level === 2) {
     currentLevel = <LevelTwo />;
+  } else if (level === 3) {
+    currentLevel = <LevelThree />
   }
 
   return (

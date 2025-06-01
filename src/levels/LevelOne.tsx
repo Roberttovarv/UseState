@@ -8,6 +8,7 @@ import {
   textStyle,
   textInput,
   ExerciseTextInput,
+  CodeContainer,
 } from "../styles/styles.ts";
 
 import { CustomButton } from "../components/CustomButton.tsx";
@@ -21,8 +22,7 @@ export const LevelOne = () => {
   return (
     <div style={containerStyle}>
       <div style={leftPanelStyle}>
-        <h3>1.</h3>
-        <h2>Definiremos nuestro estado inicial:</h2>
+        <h2>1 - Definiremos nuestro estado inicial:</h2>
         <p style={textStyle}>
           Creamos un estado llamado <b>userInput</b>, que se actualiza mediante la función <b>setUserInput</b>.
         </p>
@@ -40,7 +40,7 @@ export const LevelOne = () => {
             <label style={textStyle}><b>Pruébalo aquí:</b></label>
           </div>
           <div style={{ width: "80%" }}>
-            <div style={{ backgroundColor: "#1e1e1e", borderRadius: 5, padding: ".5rem" }}>
+            <div style={CodeContainer}>
 
               <ColoredText
                 text={[

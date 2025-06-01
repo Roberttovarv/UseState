@@ -33,6 +33,6 @@ const componentStyle:  CSSProperties = {
                 fontSize: "1rem",
                 display: "flex",
                 flexWrap: "wrap",
-                alignItems: "start",
+                alignItems: "center",
                 whiteSpace: "pre-wrap",
             }
