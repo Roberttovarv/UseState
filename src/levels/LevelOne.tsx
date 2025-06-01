@@ -31,17 +31,16 @@ export const LevelOne = () => {
 
         </p>
         <p style={textStyle}>
-          El elemento <b>{`<input>`}</b> utiliza los atributos <b>value</b> y <b>onChange</b> para vincularse al estado y manejar cambios, que nos ayudarán a que el valor de lo que hay en el cuadro sea <b>userInput</b>.
+          En el elemento <b>{"<input>"}</b>, usamos el atributo value para que su contenido siempre refleje el valor actual de userInput. <br />
+          Esto asegura que el valor mostrado en el input y el estado estén sincronizados.
         </p>
-        <ul style={textStyle}>
-          <b>value</b>: Vincula el valor del campo al estado userInput, asegurando que el contenido del input siempre refleje el valor actual del estado.
-          </ul>
+
         <div>
           <div style={{ marginBottom: 20 }}>
-            <label style={textStyle}><b>Prúebalo aquí:</b></label>
+            <label style={textStyle}><b>Pruébalo aquí:</b></label>
           </div>
           <div style={{ width: "80%" }}>
-            <div style={{ backgroundColor: containerStyle.backgroundColor, borderRadius: 5, padding: ".5rem" }}>
+            <div style={{ backgroundColor: "#1e1e1e", borderRadius: 5, padding: ".5rem" }}>
 
               <ColoredText
                 text={[
@@ -64,7 +63,7 @@ export const LevelOne = () => {
                   [`"`, "lightgreen"],
                   [")", "mediumorchid"]
                 ]}
-              />
+              /> <br />
               <ColoredText text={[
                 ["<"],
                 ["input ", "indianred"]]} />
@@ -86,9 +85,9 @@ export const LevelOne = () => {
               ]} />
               <ColoredText text={[["/>"]]} />
             </div>
-              <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-                <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
-              </div>
+            <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
+              <CustomButton onClick={() => setUserInput(text)}>Probar</CustomButton>
+            </div>
           </div>
         </div>
 

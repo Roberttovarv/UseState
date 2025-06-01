@@ -17,7 +17,6 @@ export const leftPanelStyle: CSSProperties = {
     borderRight: "1px solid #333",
     backgroundColor: "#2c2c2c",
     color: "#f0f0f0",
-    overflow: "hidden"
 };
 
 export const rightPanelStyle: CSSProperties = {
@@ -72,26 +71,72 @@ export const textInput: CSSProperties = {
 
 export const buttonStyle: CSSProperties = {
     marginTop: "1rem",
-    padding: "0.3rem 0.8rem", // menos espacio interior
-    fontSize: "14px",         // texto más pequeño
+    padding: "0.3rem 0.8rem",
+    fontSize: "14px",
     backgroundColor: "#2c2c2c",
     border: "1px solid #666",
-    borderRadius: "4px",      // opcionalmente más pequeño
+    borderRadius: "4px",
     fontWeight: "bold",
     cursor: "pointer",
     transition: "background-color 0.3s ease"
 }
 export const ExerciseTextInput: CSSProperties = {
-    ...textInput,
-    width: 120,
-    color: "lightgreen",
+    width: 200,
+    color: "yellow",
     height: ".7rem",
-    marginTop: 15,
     fontSize: "1em",
     padding: "0.2em 0.4em",
-    verticalAlign: "middle",
+    alignItems: "center",
     border: "1px solid #333",
     borderRadius: "5px",
     fontFamily: "monospace",
-    resize: "horizontal"
+    resize: "horizontal",
+    backgroundColor: "#2c2c2c",
 }
+
+export const WrongExerciseTextInput: CSSProperties = {
+    width: 200,
+    color: "yellow",
+    height: ".7rem",
+    fontSize: "1em",
+    padding: "0.2em 0.4em",
+    border: "1px solid #FF4500",
+    verticalAlign: "middle",
+    borderRadius: "5px",
+    fontFamily: "monospace",
+    resize: "horizontal",
+    backgroundColor: "#2c2c2c",
+
+}
+
+export const CorrectExerciseTextInput: CSSProperties = {
+    width: 200,
+    color: "yellow",
+    height: ".7rem",
+    fontSize: "1em",
+    padding: "0.2em 0.4em",
+    verticalAlign: "middle",
+    border: "1px solid rgb(53, 223, 48)",
+    borderRadius: "5px",
+    fontFamily: "monospace",
+    resize: "horizontal",
+    backgroundColor: "#2c2c2c",
+}
+
+export const injectShakeAnimation = () => {
+    const styleId = "shake-animation-style";
+    if (document.getElementById(styleId)) return; // Ya está inyectado
+
+    const style = document.createElement("style");
+    style.id = styleId;
+    style.innerHTML = `
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+  `;
+    document.head.appendChild(style);
+};

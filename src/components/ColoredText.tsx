@@ -1,6 +1,5 @@
 import React from "react";
 import type { FC, Fragment, CSSProperties } from "react";
-import { containerStyle } from "../styles/styles";
 
 
 type Fragment = [React.ReactNode, string?];
@@ -12,7 +11,7 @@ type ColoredTextProps = {
 
 export const ColoredText: FC<ColoredTextProps> = ({ text, style }) => {
     return (
-        <div
+        <span
             style={{...componentStyle, ...style}}
         >
             {text.map(([content, color], index) => (
@@ -20,19 +19,20 @@ export const ColoredText: FC<ColoredTextProps> = ({ text, style }) => {
                     {content}
                 </span>
             ))}
-        </div>
+        </span>
     );
 }
 
 const componentStyle:  CSSProperties = {
 
-                backgroundColor: containerStyle.backgroundColor,
-                borderRadius: 10,
-                paddingLeft: "20px",
+                backgroundColor: "#1e1e1e",
+                borderRadius: 7,
+                width: "auto",
+                padding: "0 .3rem",
                 fontFamily: "Consolas, monospace",
                 fontSize: "1rem",
                 display: "flex",
                 flexWrap: "wrap",
-                alignItems: "center",
+                alignItems: "start",
                 whiteSpace: "pre-wrap",
             }

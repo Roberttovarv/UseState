@@ -6,34 +6,47 @@ import { StartScreen } from "./levels/StartScreen.tsx";
 import { useState } from "react";
 import { LevelTwo } from "./levels/LevelTwo.tsx";
 
-
-
-
-
 function App() {
+  const [level, setLevel] = useState<number>(0)
+  const handleLevel = (action: number) => {
+    if (action === 1) {
+      if (level === 0) {
+        return
+      }
+      setLevel(level -1)
+    }
+        if (action === 2) {
+      if (level === 2) {
+        return
+      }
+      setLevel(level + 1)
+    }
+  }
 
-  const [level, setLevel] = useState<Boolean>(false)
-  let  currentLevel = <LevelTwo />
+  let currentLevel;
 
-  if (level) {
-    currentLevel = <LevelTwo />
+  if (level === 0) {
+    currentLevel = <StartScreen />;
+  } else if (level === 1) {
+    currentLevel = <LevelOne />;
+  } else if (level === 2) {
+    currentLevel = <LevelTwo />;
   }
 
   return (
     <div style={appStyle}>
       <div style={levelContainerStyle}>
-
-  {currentLevel}
+        {currentLevel}
       </div>
       <div
-        style={level ? ButtonsContainer : {...ButtonsContainer, right: "45%"}}
+        style={level ? ButtonsContainer : { ...ButtonsContainer, right: "45%" }}
       >
         <CustomButton
-          onClick={() => setLevel(false)}
+          onClick={() => handleLevel(1)}
         >Anterior
         </CustomButton>
         <CustomButton
-          onClick={() => setLevel(true)}
+          onClick={() => handleLevel(2)}
         >Siguiente
         </CustomButton>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
     containerStyle,
@@ -8,6 +8,9 @@ import {
     textStyle,
     textInput,
     ExerciseTextInput,
+    WrongExerciseTextInput,
+    CorrectExerciseTextInput,
+    injectShakeAnimation
 } from "../styles/styles.ts";
 
 import { CustomButton } from "../components/CustomButton.tsx";
@@ -16,18 +19,42 @@ import { ColoredText } from "../components/ColoredText.tsx";
 export const LevelTwo = () => {
     const [valueText, setValueText] = useState<string>("");
     const [onChangeText, setOnChangeText] = useState<string>("");
-    const [userInput, setUserInput] = useState<string>("")
+    const [userInput, setUserInput] = useState<string>("");
+    const [valueIsValid, setValueIsValid] = useState<boolean>(false);
+    const [onChangeIsValid, setOnChangeIsValid] = useState<boolean>(false);
+    const [isWrong, setIsWrong] = useState<boolean>(false);
 
-    const [valueExercise, setValueExercise] = useState<string>("");
-    const [onChangeExercise, setOnChangeExercise] = useState<string>("");
 
-    const handleUserExercise = () => {
-        setValueExercise(valueText);
-        setOnChangeExercise(onChangeText)
-        console.log(valueExercise, onChangeExercise);
+    useEffect(() => {
+        injectShakeAnimation()
 
+    }, [])
+
+const handleUserExercise = () => {
+  if (valueText !== "userInput") {
+    setValueIsValid(false);
+    setUserInput("");
+    handleWrongInput();
+    return;
+  }
+
+  if (onChangeText !== "setUserInput(event.target.value)") {
+    setOnChangeIsValid(false);
+    setUserInput("");
+    handleWrongInput();
+    return;
+  }
+  setValueIsValid(true);
+  setOnChangeIsValid(true);
     }
 
+    const handleWrongInput = () => {
+        setIsWrong(true)
+
+        setTimeout(() => {
+            setIsWrong(false)
+        }, 1500)
+    }
 
     return (
         <div style={containerStyle}>
@@ -35,39 +62,49 @@ export const LevelTwo = () => {
                 <h3 >2.</h3>
                 <h2>Actualizaremos el estado al hacer cambios en el input:</h2>
                 <p style={textStyle}>
-                    El segundo elemento que usa <b>{"<input>"}</b> para actualizar nuestro estado es <b>{"onChange"}</b>, que redefinirá el estado de <b>useInput</b> a medida que vayamos añadiendo contenido en el contenedor</p>
-                <p style={textStyle}>
-                    Para ello debemos insertar <b>userInput</b> en <b>setUserInput</b>.
-                </p>
-                <p style={textStyle}>
-                    Usaremos <b>onChange</b> y dentro de el haremos una función flecha usando un evento para que el estado se actualice cada vez que ocurra un cambio.
-                </p>
-                <p style={textStyle}>
+                    Para que el estado cambie a medida que escribes, utilizamos el evento onChange.
+                    Cada vez que el usuario escribe algo nuevo, esta función se dispara y recibe un evento.
+                    Ese evento tiene una propiedad llamada target, que apunta al elemento que generó el cambio, en este caso, el input.
+                    Y dentro de ese target está el value, que es justo el texto que el usuario ha tecleado.
+
 
                 </p>
+                <p style={textStyle}>
+                    Con esa información, simplemente llamamos a &nbsp;
+                    <ColoredText text={[
+                        ["setUserInput", "lightblue"],
+                        ["(", "orange"],
+                        ["event.target.value", "indianred"],
+                        [")", "orange"]
+                    ]} style={{display: "inline-flex"}}
+                    />,
+                    que actualiza nuestro estado con el nuevo texto.
+                    Así, el input y el estado van siempre sincronizados, y cada letra que escribes se refleja en el estado.
+                </p>
+
                 <div>
                     <div style={{ marginBottom: 20 }}>
-                        <label style={textStyle}><b>Prúebalo aquí ⬇</b></label>
+                        <label style={textStyle}><b>Pruébalo aquí ⬇</b></label>
                     </div>
                     <div style={{ width: "80%" }}>
                         <div style={{
                             backgroundColor: containerStyle.backgroundColor,
-                            borderRadius: 5
+                            borderRadius: 5,
+                            padding: ".5rem"
                         }}>
-
                             <ColoredText text={[
                                 ["<"],
-                                ["input ", "indianred"]]} />
+                                ["input ", "indianred"]]} /> 
                             <ColoredText text={[
                                 ["   type", "orange"],
                                 ["=", "lightblue"],
                                 ['"text"', "lightgreen"]
-                            ]} />
+                            ]} /> 
                             <ColoredText text={[
                                 ["   placeholder", "orange"],
                                 ["=", "lightblue"],
                                 ['"Añade la función para actualizar el estado"', "lightgreen"]
-                            ]} />
+                            ]} /> 
                             <ColoredText text={[
                                 ["   value", "orange"],
                                 ["={", "lightblue"],
@@ -76,10 +113,15 @@ export const LevelTwo = () => {
                                     placeholder="Añade el valor"
                                     value={valueText}
                                     onChange={(event) => setValueText(event.target.value)}
-                                    style={{ ...ExerciseTextInput, width: 150, margin: 0 }}
+                                    style={
+                                        valueIsValid
+                                            ? CorrectExerciseTextInput
+                                            : isWrong
+                                                ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
+                                                : ExerciseTextInput}
                                 />, undefined],
                                 ["}", "lightblue"],
-                            ]} />
+                            ]} /> 
                             <ColoredText text={[
                                 ["   onChange", "orange"],
                                 ["={", "lightblue"],
@@ -92,7 +134,12 @@ export const LevelTwo = () => {
                                     placeholder="Añade la función para actualizar el estado"
                                     value={onChangeText}
                                     onChange={(event) => setOnChangeText(event.target.value)}
-                                    style={{ ...ExerciseTextInput, width: 300, margin: 0 }}
+                                    style={
+                                        onChangeIsValid
+                                            ? CorrectExerciseTextInput
+                                            : isWrong
+                                                ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
+                                                : ExerciseTextInput}
                                 />, undefined],
                                 ["}", "lightblue"],
                             ]}
@@ -106,19 +153,24 @@ export const LevelTwo = () => {
                 </div>
 
             </div>
-
             <div style={rightPanelStyle}>
                 <div style={resultBoxStyle}>
                     <h2>Resultado</h2>
                     <p style={textStyle}>Aquí verás lo que pasa cuando cambias el estado inicial.</p>
                     <input
+                        id="FinalResult"
                         type="text"
                         placeholder="Escribe algo..."
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
+                        {...
+                        (valueIsValid && onChangeIsValid ?
+                            {
+                                value: userInput,
+                                onChange: (event) => setUserInput(event?.target.value)
+                            } :
+                            {}
+                        )}
                         style={textInput}
                     />
-
                     <p style={{ color: "#ccc", fontSize: "18px" }}>
                         {userInput ? `Texto actualizado: ${userInput}` : "Aquí aparecerá el texto actualizado"}
                     </p>

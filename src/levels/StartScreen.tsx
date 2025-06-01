@@ -1,11 +1,9 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { rightPanelStyle } from '../styles/styles';
-
 export const StartScreen = () => {
     return (
         <>
-            <div style={{ paddingLeft: 30 ,display: "flex", height: "100vh", backgroundColor: rightPanelStyle.backgroundColor }}>
+            <div style={{ paddingLeft: 30 ,display: "flex", height: "100vh", backgroundColor: "#1e1e1e" }}>
                 <div
                     style={{
                         flex: 1,
@@ -32,16 +30,16 @@ export const StartScreen = () => {
                     <p>Y luego definimos nuestro estado:</p>
                     <div style={{ width: "40%" }}>
                         <SyntaxHighlighter language="javascript" style={okaidia}>
-                            const [text, setText] = useState("")
+                            const [userInput, setUserInput] = useState("")
                         </SyntaxHighlighter>
                     </div>
-                    <p>Aquí:
+                    <span>Aquí:
                         <ul>
-                            <li><b>text</b> es la variable de estado</li>
-                            <li><b>setText</b> es la función que usamos para actualizarla.</li>
+                            <li><b>userInput</b> es la variable de estado</li>
+                            <li><b>setUserInput</b> es la función que usamos para actualizarla.</li>
                             <li><b>useState("")</b> define el valor inicial del estado. En este caso, un string vacío, pero podríamos poner <b>"Hello World"</b> o cualquier otro valor.</li>
                         </ul>
-                    </p>
+                    </span>
                     <h4>¿Y ahora qué?</h4>
                     <p>
                         ¡Ya tenemos configurado nuestro estado!
