@@ -6,6 +6,8 @@ import { StartScreen } from "./levels/StartScreen.tsx";
 import { useState } from "react";
 import { LevelTwo } from "./levels/LevelTwo.tsx";
 import { LevelThree } from "./levels/LevelThree.tsx";
+import { LevelFour } from "./levels/LevelFour.tsx";
+
 
 function App() {
   const [level, setLevel] = useState<number>(0)
@@ -17,7 +19,7 @@ function App() {
       setLevel(level -1)
     }
         if (action === 2) {
-      if (level === 3) {
+      if (level === 4) {
         return
       }
       setLevel(level + 1)
@@ -34,6 +36,8 @@ function App() {
     currentLevel = <LevelTwo />;
   } else if (level === 3) {
     currentLevel = <LevelThree />
+  } else if (level === 4) {
+    currentLevel = <LevelFour />
   }
 
   return (
@@ -74,7 +78,7 @@ const appStyle: React.CSSProperties = {
 const ButtonsContainer: CSSProperties = {
   position: "fixed",
   bottom: "50px",
-  right: "50%",
+  right: "38%",
   display: "flex",
   gap: "1rem"
 }
