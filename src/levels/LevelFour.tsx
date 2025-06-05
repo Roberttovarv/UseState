@@ -17,16 +17,24 @@ import { CustomButton } from "../components/CustomButton.tsx";
 import { ColoredText } from "../components/ColoredText.tsx";
 
 export const LevelFour = () => {
-
     useEffect(() => {
         injectShakeAnimation()
     }, [])
 
+    const [validProperty, setValidProperty] = useState(false)
+
     const [color, setColor] = useState<string>("");
     const [text, setText] = useState<string>("")
-    const [state, setState] = useState<string>("")
+    const [textIsValid, setTextIsValid] = useState<boolean>(false);
+
+    const [colorOneIsValid, setColorOneIsValid] = useState<boolean>(false);
+    const [colorTwoIsValid, setColorTwoIsValid] = useState<boolean>(false);
+    const [colorThreeIsValid, setColorThreeIsValid] = useState<boolean>(false);
+
     const [isWrong, setIsWrong] = useState<boolean>(false);
-    const [isValid, setIsValid] = useState<boolean>(false);
+    const [colorOneIsWrong, setColorOneIsWrong] = useState<boolean>(false);
+    const [colorTwoIsWrong, setColorTwoIsWrong] = useState<boolean>(false);
+    const [colorThreeIsWrong, setColorThreeIsWrong] = useState<boolean>(false);
 
     const [colorOne, setColorOne] = useState<string>("")
     const [colorTwo, setColorTwo] = useState<string>("")
@@ -35,44 +43,75 @@ export const LevelFour = () => {
 
     const handleTextInput = () => {
         if (text === "color") {
-            setState(text)
-            setIsValid(true)
+            setTextIsValid(true)
+            setValidProperty(true)
             return
+        } else {
+            setIsWrong(true)
+            setTextIsValid(false)
+                        setValidProperty(false)
+
+            setTimeout(() => setIsWrong(false), 1500)
         }
-        handleWrongInput()
-        setIsValid(false)
-
     }
-
     const handleColorOne = () => {
         if (colorOne.split(' ').join('') === "orange") {
             setColor(colorOne)
+            setColorOneIsValid(true)
+            return
+        } else {
+            setColorOneIsWrong(true)
+            setColorOneIsValid(false)
+            setTimeout(() => setColorOneIsWrong(false), 1500)
         }
-    }        
+    }
 
     const handleColorTwo = () => {
         if (colorTwo.split(' ').join('') === "pink") {
             setColor(colorTwo)
-        }
-    }    
+            setColorTwoIsValid(true)
+            return
+        } else {
+            setColorTwoIsWrong(true)
+            setColorTwoIsValid(false)
+            setTimeout(() => setColorTwoIsWrong(false), 1500)
 
+        }
+    }
     const handleColorThree = () => {
         if (colorThree.split(' ').join('') === "beige") {
             setColor(colorThree)
+            setColorThreeIsValid(true)
+            return
+        } else {
+            setColorThreeIsWrong(true)
+            setColorThreeIsValid(false)
+            setTimeout(() => setColorThreeIsWrong(false), 1500)
+
         }
     }
 
-    const handleWrongInput = () => {
-        setIsWrong(true)
-
-        setTimeout(() => {
-            setIsWrong(false)
-        }, 1500)
-    }
-
-    const inputStyle = isValid
+    const TextInputStyle = textIsValid
         ? CorrectExerciseTextInput
         : isWrong
+            ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
+            : ExerciseTextInput;
+
+    const ColorOneInputStyle = colorOneIsValid
+        ? CorrectExerciseTextInput
+        : colorOneIsWrong
+            ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
+            : ExerciseTextInput;
+
+    const ColorTwoInputStyle = colorTwoIsValid
+        ? CorrectExerciseTextInput
+        : colorTwoIsWrong
+            ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
+            : ExerciseTextInput;
+
+    const ColorThreeInputStyle = colorThreeIsValid
+        ? CorrectExerciseTextInput
+        : colorThreeIsWrong
             ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
             : ExerciseTextInput;
 
@@ -95,13 +134,13 @@ export const LevelFour = () => {
                     propiedades para que la interacción funcione como se espera.
                 </p>
                 <div>
-                    <div style={{ marginBottom: 20 , width: "80%"}}>
+                    <div style={{ marginBottom: 20, width: "80%" }}>
                         <label style={textStyle}>
                             <b>
                                 Primero añade el estado de color al estilo y luego prueba distintos
-                                 colores añadiendo funciones flecha para cambiar el estado del color.
-                                 </b>
-                                 </label>
+                                colores añadiendo funciones flecha para cambiar el estado del color.
+                            </b>
+                        </label>
                     </div>
                     <div style={{ width: "80%" }}>
                         <div style={CodeContainer}>
@@ -130,10 +169,10 @@ export const LevelFour = () => {
                                 [":"],
                                 [<input
                                     type="text"
-                                    placeholder="Cambia el color"
+                                    placeholder="Cambia la propiedad"
                                     value={text}
                                     onChange={(e) => setText(e.target.value)}
-                                    style={inputStyle}
+                                    style={TextInputStyle}
                                 />],
                                 ["}", "orange"],
                                 ["}", "lightblue"],
@@ -150,8 +189,8 @@ export const LevelFour = () => {
                         </div>
                         <div style={{ width: "100%", display: "flex", gap: "1rem", marginTop: "1rem" }}>
                             <div>
-                                <div style={{padding: ".3rem"}}>
-                                <span style={{...textStyle}}>Añade "orange" al estado</span>
+                                <div style={{ padding: ".3rem" }}>
+                                    <span style={{ ...textStyle }}>Añade "orange" al estado</span>
                                 </div>
                                 <div style={CodeContainer}>
                                     <ColoredText text={[
@@ -167,7 +206,7 @@ export const LevelFour = () => {
                                             placeholder="Cambia el color"
                                             value={colorOne}
                                             onChange={(e) => setColorOne(e.target.value)}
-                                            style={{ ...inputStyle, width: 150 }}
+                                            style={{ ...ColorOneInputStyle, width: 150 }}
                                         />],
                                         ["}", "lightblue"],
                                         [">"]
@@ -184,12 +223,12 @@ export const LevelFour = () => {
 
                                 </div>
                                 <div>
-                                    <CustomButton onClick={handleColorThree}>Probar</CustomButton>
+                                    <CustomButton onClick={handleColorOne}>Probar</CustomButton>
                                 </div>
                             </div>
                             <div>
-                                                                <div style={{padding: ".3rem"}}>
-                                <span style={{...textStyle}}>Añade "pink" al estado</span>
+                                <div style={{ padding: ".3rem" }}>
+                                    <span style={{ ...textStyle }}>Añade "pink" al estado</span>
                                 </div>
                                 <div style={CodeContainer}>
                                     <ColoredText text={[
@@ -205,7 +244,7 @@ export const LevelFour = () => {
                                             placeholder="Cambia el color"
                                             value={colorTwo}
                                             onChange={(e) => setColorTwo(e.target.value)}
-                                            style={{ ...inputStyle, width: 150 }}
+                                            style={{ ...ColorTwoInputStyle, width: 150 }}
                                         />],
                                         ["}", "lightblue"],
                                         [">"]
@@ -226,9 +265,9 @@ export const LevelFour = () => {
                                 </div>
                             </div>
                             <div>
-                                                                <div style={{padding: ".3rem"}}>
-                                <span style={{...textStyle}}>Añade "orange" al estado</span>
-                                </div> 
+                                <div style={{ padding: ".3rem" }}>
+                                    <span style={{ ...textStyle }}>Añade "beige" al estado</span>
+                                </div>
                                 <div style={CodeContainer}>
                                     <ColoredText text={[
                                         ["<"],
@@ -243,7 +282,7 @@ export const LevelFour = () => {
                                             placeholder="Cambia el color"
                                             value={colorThree}
                                             onChange={(e) => setColorThree(e.target.value)}
-                                            style={{ ...inputStyle, width: 150 }}
+                                            style={{ ...ColorThreeInputStyle, width: 150 }}
                                         />],
                                         ["}", "lightblue"],
                                         [">"]
@@ -257,7 +296,6 @@ export const LevelFour = () => {
                                         ["button", "indianred"],
                                         [">"]
                                     ]} />
-
                                 </div>
                                 <div>
                                     <CustomButton onClick={handleColorThree}>Probar</CustomButton>
@@ -269,7 +307,12 @@ export const LevelFour = () => {
 
             </div>
             <div style={rightPanelStyle}>
-                <div style={{ ...resultBoxStyle, backgroundColor: state !== "" ? state : undefined }}>
+                <div
+                    {...(
+                        validProperty
+                            ? { style: { ...resultBoxStyle, backgroundColor: color !== "" ? color : undefined } }
+                            : {style: { ...resultBoxStyle}}
+                    )}>
                     <h2>Cámbiame el color!</h2>
                 </div>
             </div>
