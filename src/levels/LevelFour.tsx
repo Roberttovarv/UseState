@@ -23,7 +23,7 @@ export const LevelFour = () => {
 
     const [validProperty, setValidProperty] = useState(false)
 
-    const [color, setColor] = useState<string>("");
+    const [color, setColor] = useState<string>("#2c2c2c");
     const [text, setText] = useState<string>("")
     const [textIsValid, setTextIsValid] = useState<boolean>(false);
 
@@ -49,14 +49,15 @@ export const LevelFour = () => {
         } else {
             setIsWrong(true)
             setTextIsValid(false)
-                        setValidProperty(false)
+            setValidProperty(false)
 
             setTimeout(() => setIsWrong(false), 1500)
         }
     }
     const handleColorOne = () => {
-        if (colorOne.split(' ').join('') === "orange") {
-            setColor(colorOne)
+        if (colorOne.split(' ').join('') === "setColor('orange')" ||
+            colorOne.split(' ').join('') === "setColor(\"orange\")") {
+            setColor('orange')
             setColorOneIsValid(true)
             return
         } else {
@@ -67,8 +68,9 @@ export const LevelFour = () => {
     }
 
     const handleColorTwo = () => {
-        if (colorTwo.split(' ').join('') === "pink") {
-            setColor(colorTwo)
+        if (colorTwo.split(' ').join('') === "setColor('pink')" ||
+            colorTwo.split(' ').join('') === "setColor(\"pink\")") {
+            setColor('pink')
             setColorTwoIsValid(true)
             return
         } else {
@@ -79,8 +81,9 @@ export const LevelFour = () => {
         }
     }
     const handleColorThree = () => {
-        if (colorThree.split(' ').join('') === "beige") {
-            setColor(colorThree)
+        if (colorThree.split(' ').join('') === "setColor('beige')" ||
+            colorThree.split(' ').join('') === "setColor(\"beige\")") {
+            setColor('beige')
             setColorThreeIsValid(true)
             return
         } else {
@@ -142,7 +145,7 @@ export const LevelFour = () => {
                             </b>
                         </label>
                     </div>
-                    <div style={{ width: "80%" }}>
+                    <div>
                         <div style={CodeContainer}>
                             <ColoredText
                                 text={[
@@ -201,6 +204,8 @@ export const LevelFour = () => {
                                     <ColoredText text={[
                                         ["onClick", "orange"],
                                         ["={", "lightblue"],
+                                        ["() ", "orange"],
+                                        ["=> ", "mediumorchid"],
                                         [<input
                                             type="text"
                                             placeholder="Cambia el color"
@@ -239,6 +244,9 @@ export const LevelFour = () => {
                                     <ColoredText text={[
                                         ["onClick", "orange"],
                                         ["={", "lightblue"],
+                                        ["() ", "orange"],
+                                        ["=> ", "mediumorchid"],
+
                                         [<input
                                             type="text"
                                             placeholder="Cambia el color"
@@ -277,6 +285,9 @@ export const LevelFour = () => {
                                     <ColoredText text={[
                                         ["onClick", "orange"],
                                         ["={", "lightblue"],
+                                        ["() ", "orange"],
+                                        ["=> ", "mediumorchid"],
+
                                         [<input
                                             type="text"
                                             placeholder="Cambia el color"
@@ -302,6 +313,8 @@ export const LevelFour = () => {
                                 </div>
                             </div>
                         </div>
+                        <p style={textStyle}><b>Observación:</b> Cuando añades una función con argumentos a la propiedad de un componente, 
+                        siempre debes hacerlo mediante una función flecha.</p>
                     </div>
                 </div>
 
@@ -311,7 +324,7 @@ export const LevelFour = () => {
                     {...(
                         validProperty
                             ? { style: { ...resultBoxStyle, backgroundColor: color !== "" ? color : undefined } }
-                            : {style: { ...resultBoxStyle}}
+                            : { style: { ...resultBoxStyle } }
                     )}>
                     <h2>Cámbiame el color!</h2>
                 </div>

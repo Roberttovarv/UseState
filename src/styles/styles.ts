@@ -85,7 +85,7 @@ export const buttonStyle: CSSProperties = {
 }
 export const ExerciseTextInput: CSSProperties = {
     width: 200,
-    color: "yellow",
+    color: "#ffeb3b",
     height: ".7rem",
     fontSize: "1em",
     padding: "0.2em 0.4em",
@@ -95,7 +95,23 @@ export const ExerciseTextInput: CSSProperties = {
     fontFamily: "monospace",
     resize: "horizontal",
     backgroundColor: "#2c2c2c",
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)", 
 }
+export const ExerciseTextArea: CSSProperties = {
+    width: "14rem",
+    height: "7rem",
+    color: "#ffeb3b",
+    fontSize: "1em",
+    padding: "0.25em 0.5em",
+    margin: 5,
+    alignItems: "center",
+    border: "1px solid #333",
+    borderRadius: "7px",
+    fontFamily: "monospace",
+    resize: "none",
+    backgroundColor: "#2c2c2c",
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)", 
+};
 
 export const WrongExerciseTextInput: CSSProperties = {
     width: 200,

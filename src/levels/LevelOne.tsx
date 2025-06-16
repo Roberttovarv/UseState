@@ -18,7 +18,6 @@ export const LevelOne = () => {
   const [text, setText] = useState<string>("");
   const [userInput, setUserInput] = useState<string>("")
 
-
   return (
     <div style={containerStyle}>
       <div style={leftPanelStyle}>
@@ -90,7 +89,6 @@ export const LevelOne = () => {
             </div>
           </div>
         </div>
-
       </div>
 
       <div style={rightPanelStyle}>
@@ -105,8 +103,6 @@ export const LevelOne = () => {
             style={textInput}
           />
 
-          <p style={{ color: "#ccc", fontSize: "18px" }}>
-          </p>
         </div>
       </div>
     </div>

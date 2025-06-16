@@ -7,6 +7,7 @@ import { useState } from "react";
 import { LevelTwo } from "./levels/LevelTwo.tsx";
 import { LevelThree } from "./levels/LevelThree.tsx";
 import { LevelFour } from "./levels/LevelFour.tsx";
+import { LevelFive } from "./levels/LevelFive.tsx";
 
 
 function App() {
@@ -39,11 +40,11 @@ function App() {
   } else if (level === 4) {
     currentLevel = <LevelFour />
   }
-
+  let currentTest = <LevelFive />
   return (
     <div style={appStyle}>
       <div style={levelContainerStyle}>
-        {currentLevel}
+        {currentTest}
       </div>
       <div
         style={level ? ButtonsContainer : { ...ButtonsContainer, right: "45%" }}
