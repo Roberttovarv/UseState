@@ -15,8 +15,9 @@ import { ColoredText } from "../components/ColoredText.tsx";
 import { CustomButton } from "../components/CustomButton.tsx";
 
 export const LevelFive = () => {
-    const [ isTurnedOn, setIsTurnedOn ] = useState<string>("")
-    const [ lightColor, setLightColor ] = useState<string>("")
+    const [isTurnedOn, setIsTurnedOn] = useState<boolean>(false)
+    const [lightColor, setLightColor] = useState<string>("")
+    const [buttonText, setButtonText] = useState<string>("")
 
     const nullFunction = () => {
         console.log("Null")
@@ -27,13 +28,23 @@ export const LevelFive = () => {
             <div style={leftPanelStyle}>
                 <h2>5 - Manejo de estados dentro de variables:</h2>
                 <p style={textStyle}>
-                    Como podremos imaginarnos, los estados podemos manejarlos sin tener que hardcodearlos todo el tiempo,
-                    para ello utilizaremos variables las cuales nos permitirán manejar estos estados y realizar múltiples acciones.
+                    Los estados pueden ser manejardos sin tener que hardcodearlos todo el tiempo,
+                    para ello utilizaremos variables que nos permitirán cambiar estos estados y realizar múltiples acciones con ellos.
                 </p>
                 <p style={textStyle}>
-                    En éste módulo usaremos la función <ColoredText text={[["toggleLight", "palegoldenrod"]]} style={{ display: "inline-flex" }} /> y &nbsp;
-                    <ColoredText text={[["changeColorGreen", "palegoldenrod"]]} style={{ display: "inline-flex" }} /> para cambiar los colores de
-                    las luces de un semáforo.
+                    En éste módulo usaremos la función <ColoredText text={[["toggleLight", "palegoldenrod"]]} style={{ display: "inline-flex" }} /> para
+                    cambiar los "encender" y "apagar" una luz.
+                </p>
+                <p style={textStyle}>
+                    Dentro de dicha función tendremos que cambiar los valores de &nbsp;
+                    <ColoredText text={[["buttonText", "lightgreen"]]} style={{ display: "inline-flex" }} />, &nbsp;
+                    <ColoredText text={[["lightColor", "lightgreen"]]} style={{ display: "inline-flex" }} /> y &nbsp;
+                    <ColoredText text={[["isTurnedOn", "lightgreen"]]} style={{ display: "inline-flex" }} />. <br />
+                    Donde si <ColoredText text={[["isTurnedOn", "lightgreen"]]} style={{ display: "inline-flex" }} /> es &nbsp;
+                    <ColoredText text={[["true", "lightgreen"]]} style={{ display: "inline-flex" }} />, debemos cambiar su valor a &nbsp;
+                    <ColoredText text={[["false", "lightgreen"]]} style={{ display: "inline-flex" }} />, &nbsp;
+                    
+
                 </p>
                 <div>
                     <div style={{ marginBottom: 20 }}>
@@ -48,13 +59,13 @@ export const LevelFive = () => {
                         <div style={CodeContainer}>
                             <ColoredText text={[
                                 ["const ", "mediumorchid"],
-                                ["changeColorGreen = ", "lightblue"],
+                                ["toggleLight = ", "lightblue"],
                                 ["() => {", "mediumorchid"]
                             ]}
                             />
                             <ColoredText text={[
-                                [<textarea 
-                                    placeholder='Crea una condición en la que si toggleLight es true, cambie color a "green", sino, a "black"'
+                                [<textarea
+                                    placeholder='Crea un condicional en el que si toggleLight es true, cambie el estado color a "green", sino, a "black"'
                                     style={ExerciseTextArea}
                                 />]
                             ]} />
@@ -109,7 +120,7 @@ export const LevelFive = () => {
                         </div>
                     </div>
                 </div>
-                                <div style={{ width: "100%", display: "flex", gap: "1rem", marginTop: "1rem" }}>
+                <div style={{ width: "100%", display: "flex", gap: "1rem", marginTop: "1rem" }}>
                     <div>
                         <div style={{ padding: ".3rem" }}>
                             <span style={{ ...textStyle }}>Añade "red" al estado</span>
@@ -130,7 +141,7 @@ export const LevelFive = () => {
                                     placeholder="Cambia el color"
                                     value={"hola"}
                                     onChange={(e) => console.log(e)}
-                                    style={{...ExerciseTextInput, width: 150 }}
+                                    style={{ ...ExerciseTextInput, width: 150 }}
                                 />],
                                 ["}", "lightblue"],
                                 [">"]
