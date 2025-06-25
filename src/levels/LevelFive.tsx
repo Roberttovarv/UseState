@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
     containerStyle,
@@ -18,6 +18,8 @@ export const LevelFive = () => {
     const [isTurnedOn, setIsTurnedOn] = useState<boolean>(false)
     const [lightColor, setLightColor] = useState<string>("")
     const [buttonText, setButtonText] = useState<string>("")
+    const [userText, setUserText] = useState<string>("")
+    const [userInput, setUserInput] = useState<string>("")
 
     const nullFunction = () => {
         console.log("Null")
@@ -43,8 +45,6 @@ export const LevelFive = () => {
                     Donde si <ColoredText text={[["isTurnedOn", "lightgreen"]]} style={{ display: "inline-flex" }} /> es &nbsp;
                     <ColoredText text={[["true", "lightgreen"]]} style={{ display: "inline-flex" }} />, debemos cambiar su valor a &nbsp;
                     <ColoredText text={[["false", "lightgreen"]]} style={{ display: "inline-flex" }} />, &nbsp;
-                    
-
                 </p>
                 <div>
                     <div style={{ marginBottom: 20 }}>
@@ -65,17 +65,20 @@ export const LevelFive = () => {
                             />
                             <ColoredText text={[
                                 [<textarea
-                                    placeholder='Crea un condicional en el que si toggleLight es true, cambie el estado color a "green", sino, a "black"'
+                                    placeholder='Crea un condicional en el que si toggleLight es true, 
+                                    cambie el estado isTurnedOn a false, el estado color a "green" y buttonText a 
+                                    "apagar", sino, a el valor de estos serían: true, "false" y "gray"'
                                     style={ExerciseTextArea}
+                                    value={userText}
+                                    onChange={(e) => setUserText(e.target.value)}
                                 />]
                             ]} />
                             <ColoredText text={[
                                 ["}", "mediumorchid"]
                             ]} />
-
                         </div>
                         <div>
-                            <CustomButton onClick={nullFunction}>Probar</CustomButton>
+                            <CustomButton onClick={() => {setUserInput(userText), console.log(userInput)}}>Enviar</CustomButton>
                         </div>
                     </div>
                     <div>
@@ -196,7 +199,6 @@ export const LevelFive = () => {
                                 ["button", "indianred"],
                                 [">"]
                             ]} />
-
                         </div>
                         <div>
                             <CustomButton onClick={nullFunction}>Probar</CustomButton>
@@ -220,3 +222,11 @@ export const LevelFive = () => {
         </div>
     );
 }
+
+const textOption1 = `if(isTurnedOn){setIsTurnedOn(false)setLightColor("gray")setButtonText("Encender")}else{setIsTurnedOn(true)setLightColor("red")setButtonText("Apagar")}`
+const textOption2 = `if(!isTurnedOn){setIsTurnedOn(true)setLightColor("red")setButtonText("Apagar")}else{setIsTurnedOn(false)setLightColor("gray")setButtonText("Encender")}`
+
+const normalize = (str: string) =>
+  str
+    .replace(/[\s;]/g, "")
+    .replace(/['"]/g, '"') 

@@ -99,7 +99,7 @@ export const ExerciseTextInput: CSSProperties = {
 }
 export const ExerciseTextArea: CSSProperties = {
     width: "14rem",
-    height: "7rem",
+    height: "14rem",
     color: "#ffeb3b",
     fontSize: "1em",
     padding: "0.25em 0.5em",
