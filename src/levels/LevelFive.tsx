@@ -10,6 +10,9 @@ import {
     ExerciseTextInput,
     CodeContainer,
     ExerciseTextArea,
+    CorrectExerciseTextArea,
+    WrongExerciseTextArea,
+    injectShakeAnimation
 } from "../styles/styles.ts";
 import { ColoredText } from "../components/ColoredText.tsx";
 import { CustomButton } from "../components/CustomButton.tsx";
@@ -19,11 +22,33 @@ export const LevelFive = () => {
     const [lightColor, setLightColor] = useState<string>("")
     const [buttonText, setButtonText] = useState<string>("")
     const [userText, setUserText] = useState<string>("")
-    const [userInput, setUserInput] = useState<string>("")
+    const [textAreaIsValid, setTextAreaIsValid] = useState<boolean | null>(null)
 
     const nullFunction = () => {
         console.log("Null")
     }
+
+    useEffect(() => { injectShakeAnimation() }, [])
+    
+    
+    const handleTextArea = () => {
+        
+        const isCorrect = (textOption1 === normalize(userText)) || (textOption2 === normalize(userText))
+        if (isCorrect) {
+            setTextAreaIsValid(true)
+        } else {
+            setTextAreaIsValid(false)
+            setTimeout(() => setTextAreaIsValid(null), 1500)
+        }
+    }
+
+    const textAreaStyle = textAreaIsValid === null
+    ? ExerciseTextArea
+    : textAreaIsValid
+        ? CorrectExerciseTextArea
+        : !textAreaIsValid
+            ? { ...WrongExerciseTextArea, animation: "shake 0.3s ease-in-out" }
+            : ExerciseTextArea;
 
     return (
         <div style={containerStyle}>
@@ -68,7 +93,7 @@ export const LevelFive = () => {
                                     placeholder='Crea un condicional en el que si toggleLight es true, 
                                     cambie el estado isTurnedOn a false, el estado color a "green" y buttonText a 
                                     "apagar", sino, a el valor de estos serían: true, "false" y "gray"'
-                                    style={ExerciseTextArea}
+                                    style={textAreaStyle}
                                     value={userText}
                                     onChange={(e) => setUserText(e.target.value)}
                                 />]
@@ -78,7 +103,7 @@ export const LevelFive = () => {
                             ]} />
                         </div>
                         <div>
-                            <CustomButton onClick={() => {setUserInput(userText), console.log(userInput)}}>Enviar</CustomButton>
+                            <CustomButton onClick={handleTextArea}>Enviar</CustomButton>
                         </div>
                     </div>
                     <div>
@@ -221,12 +246,13 @@ export const LevelFive = () => {
             </div>
         </div>
     );
+
 }
 
 const textOption1 = `if(isTurnedOn){setIsTurnedOn(false)setLightColor("gray")setButtonText("Encender")}else{setIsTurnedOn(true)setLightColor("red")setButtonText("Apagar")}`
 const textOption2 = `if(!isTurnedOn){setIsTurnedOn(true)setLightColor("red")setButtonText("Apagar")}else{setIsTurnedOn(false)setLightColor("gray")setButtonText("Encender")}`
 
 const normalize = (str: string) =>
-  str
-    .replace(/[\s;]/g, "")
-    .replace(/['"]/g, '"') 
+    str
+        .replace(/[\s;]/g, "")
+        .replace(/['"]/g, '"') 

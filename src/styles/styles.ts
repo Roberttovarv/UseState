@@ -95,7 +95,38 @@ export const ExerciseTextInput: CSSProperties = {
     fontFamily: "monospace",
     resize: "horizontal",
     backgroundColor: "#2c2c2c",
-    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)", 
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
+}
+
+export const WrongExerciseTextInput: CSSProperties = {
+    width: 200,
+    color: "#ffeb3b",
+    height: ".7rem",
+    fontSize: "1em",
+    padding: "0.2em 0.4em",
+    alignItems: "center",
+    border: "1px solid #FF4500",
+    borderRadius: "5px",
+    fontFamily: "monospace",
+    resize: "horizontal",
+    backgroundColor: "#2c2c2c",
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
+    
+}
+
+export const CorrectExerciseTextInput: CSSProperties = {
+    width: 200,
+    color: "#ffeb3b",
+    height: ".7rem",
+    fontSize: "1em",
+    padding: "0.2em 0.4em",
+    alignItems: "center",
+    verticalAlign: "middle",
+    border: "1px solid rgb(53, 223, 48)",
+    borderRadius: "5px",
+    fontFamily: "monospace",
+    resize: "horizontal",
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
 }
 export const ExerciseTextArea: CSSProperties = {
     width: "14rem",
@@ -110,37 +141,38 @@ export const ExerciseTextArea: CSSProperties = {
     fontFamily: "monospace",
     resize: "none",
     backgroundColor: "#2c2c2c",
-    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)", 
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
 };
-
-export const WrongExerciseTextInput: CSSProperties = {
-    width: 200,
-    color: "yellow",
-    height: ".7rem",
+export const WrongExerciseTextArea: CSSProperties = {
+    width: "14rem",
+    height: "14rem",
+    color: "#ffeb3b",
     fontSize: "1em",
-    padding: "0.2em 0.4em",
+    padding: "0.25em 0.5em",
+    margin: 5,
+    alignItems: "center",
     border: "1px solid #FF4500",
-    verticalAlign: "middle",
-    borderRadius: "5px",
+    borderRadius: "7px",
     fontFamily: "monospace",
-    resize: "horizontal",
+    resize: "none",
     backgroundColor: "#2c2c2c",
-
-}
-
-export const CorrectExerciseTextInput: CSSProperties = {
-    width: 200,
-    color: "yellow",
-    height: ".7rem",
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
+};
+export const CorrectExerciseTextArea: CSSProperties = {
+    width: "14rem",
+    height: "14rem",
+    color: "#ffeb3b",
     fontSize: "1em",
-    padding: "0.2em 0.4em",
-    verticalAlign: "middle",
+    padding: "0.25em 0.5em",
+    margin: 5,
+    alignItems: "center",
     border: "1px solid rgb(53, 223, 48)",
-    borderRadius: "5px",
+    borderRadius: "7px",
     fontFamily: "monospace",
-    resize: "horizontal",
+    resize: "none",
     backgroundColor: "#2c2c2c",
-}
+    boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
+};
 
 export const CodeContainer: CSSProperties = {
     backgroundColor: " #1e1e1e",
@@ -151,16 +183,16 @@ export const CodeContainer: CSSProperties = {
 export const injectShakeAnimation = () => {
     const styleId = "shake-animation-style";
     if (document.getElementById(styleId)) return; // Ya está inyectado
-
+    
     const style = document.createElement("style");
     style.id = styleId;
     style.innerHTML = `
     @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-4px); }
-      50% { transform: translateX(4px); }
-      75% { transform: translateX(-4px); }
-      100% { transform: translateX(0); }
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-4px); }
+        50% { transform: translateX(4px); }
+        75% { transform: translateX(-4px); }
+        100% { transform: translateX(0); }
     }
   `;
     document.head.appendChild(style);
