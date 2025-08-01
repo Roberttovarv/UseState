@@ -1,10 +1,10 @@
 
 import type { CSSProperties } from "react";
 import { CustomButton } from "./components/CustomButton.tsx";
-import { LevelOne } from "./levels/LevelOne.tsx"
+import { LevelOne } from "./levels/Level 1/LevelOne.tsx"
 import { StartScreen } from "./levels/StartScreen.tsx";
 import { useState } from "react";
-import { LevelTwo } from "./levels/LevelTwo.tsx";
+import { LevelTwo } from "./levels/Level 2/LevelTwo.tsx";
 import { LevelThree } from "./levels/LevelThree.tsx";
 import { LevelFour } from "./levels/LevelFour.tsx";
 import { LevelFive } from "./levels/LevelFive.tsx";
@@ -44,7 +44,7 @@ function App() {
   return (
     <div style={appStyle}>
       <div style={levelContainerStyle}>
-        {currentTest}
+        {currentLevel}
       </div>
       <div
         style={level ? ButtonsContainer : { ...ButtonsContainer, right: "45%" }}
