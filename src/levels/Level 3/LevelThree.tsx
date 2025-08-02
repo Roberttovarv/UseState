@@ -9,10 +9,10 @@ import {
     textInput,
     ExerciseTextInput,
     CodeContainer
-} from "../styles/styles.ts";
+} from "../../styles/styles.ts";
 
-import { CustomButton } from "../components/CustomButton.tsx";
-import { ColoredText } from "../components/ColoredText.tsx";
+import { CustomButton } from "../../components/CustomButton.tsx";
+import { ColoredText } from "../../components/ColoredText.tsx";
 
 export const LevelThree = () => {
 

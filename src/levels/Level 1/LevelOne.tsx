@@ -51,7 +51,7 @@ export const LevelOne = () => {
       </div>
 
       <div style={rightPanelStyle}>
-        <ResultBox userInput={userInput} setText={setText} header={"Aquí verás lo que pasa cuando cambias el estado inicial."}/>
+        <ResultBox userInput={userInput} onChange={setText} header={"Aquí verás lo que pasa cuando cambias el estado inicial."}/>
       </div>
     </div>
   );

@@ -4,9 +4,7 @@ import {
     containerStyle,
     leftPanelStyle,
     rightPanelStyle,
-    resultBoxStyle,
     textStyle,
-    textInput,
 } from "../../styles/styles.ts";
 
 import { CustomButton } from "../../components/CustomButton.tsx";
@@ -84,7 +82,7 @@ export const LevelTwo = () => {
                 </div>
             </div>
             <div style={rightPanelStyle}>
-                <ResultBox  setText={handleResultBox} header={"Aquí verás lo que pasa cuando cambias el estado inicial."} footer={userInput}/>
+                <ResultBox  onChange={handleResultBox} header={"Aquí verás lo que pasa cuando cambias el estado inicial."} footer={userInput}/>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { textStyle, leftPanelStyle, containerStyle } from '../styles/styles';
-import { ColoredText } from '../components/ColoredText';
+import { textStyle, leftPanelStyle, containerStyle } from '../../styles/styles';
+import { ColoredText } from '../../components/ColoredText';
+import { StateLine } from './components/StateLine';
+import { HookLine } from './components/HookLine';
 
 
 export const StartScreen = () => {
@@ -21,39 +21,11 @@ export const StartScreen = () => {
                     <h3>¿Cuál es su sintaxis?</h3>
                     <p style={textStyle}>Para declarar un estado, primero hay que importar el hook <b>useState</b>:</p>
                     <div>
-                        <ColoredText text={[
-                            ["import ", "mediumorchid"],
-                            ["{", "orange"],
-                            [" useState ", "indianred"],
-                            ["} ", "orange"],
-                            ["from", "mediumorchid"],
-                            ['"react"', "lightgreen"],
-                            [";"]
-                        ]}
-                            style={{
-                                display: "inline-flex",
-                                padding: 12
-                            }} />
+                        <HookLine />
                     </div>
                     <p style={textStyle}>Y luego definimos nuestro estado:</p>
                     <div >
-                        <ColoredText
-                            text={[
-                                ["const [ ", "mediumorchid"],
-                                ["color", "palegoldenrod"],
-                                [", ", "white"],
-                                ["setColor ", "lightblue"],
-                                ["] ", "mediumorchid"],
-                                ["= ", "white"],
-                                ["useState", "lightblue"],
-                                ["(", "mediumorchid"],
-                                [`""`, "lightgreen"],
-                                [")", "mediumorchid"]
-                            ]}
-                            style={{
-                                display: "inline-flex",
-                                padding: 12
-                            }} />
+                            <StateLine />
                     </div>
                     <p style={textStyle}>Aquí:
                         <ul>

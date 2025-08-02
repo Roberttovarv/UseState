@@ -3,12 +3,12 @@ import { textInput } from "../styles/styles"
 import type { FC } from "react"
 
 type ResultBoxProps = {
-  userInput?: string,
-  setText: (value: string) => void,
+  userInput?: string, //For LevelOne.tsx
+  onChange: (value: string) => void,
   header: string,
   footer?: string
 }
-export const ResultBox: FC<ResultBoxProps> = ({ userInput, setText, header, footer }) => {
+export const ResultBox: FC<ResultBoxProps> = ({ userInput, onChange, header, footer }) => {
   return (
     <div style={resultBoxStyle}>
       <h2 style={{color: "#ccc"}}>Resultado</h2>
@@ -19,7 +19,7 @@ export const ResultBox: FC<ResultBoxProps> = ({ userInput, setText, header, foot
         type="text"
         placeholder="Escribe algo..."
         value={userInput}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         style={textInput}
       />
     {footer && <p>{footer}</p>}
