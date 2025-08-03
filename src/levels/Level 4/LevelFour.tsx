@@ -15,45 +15,28 @@ import {
 
 import { CustomButton } from "../../components/CustomButton.tsx";
 import { ColoredText } from "../../components/ColoredText.tsx";
+import { StyleSetter } from "./components/StyleSetter.tsx";
 
 export const LevelFour = () => {
     useEffect(() => {
         injectShakeAnimation()
     }, [])
 
-    const [validProperty, setValidProperty] = useState(false)
 
     const [color, setColor] = useState<string>("#2c2c2c");
     const [text, setText] = useState<string>("")
-    const [textIsValid, setTextIsValid] = useState<boolean>(false);
-
-    const [colorOneIsValid, setColorOneIsValid] = useState<boolean>(false);
-    const [colorTwoIsValid, setColorTwoIsValid] = useState<boolean>(false);
-    const [colorThreeIsValid, setColorThreeIsValid] = useState<boolean>(false);
-
-    const [isWrong, setIsWrong] = useState<boolean>(false);
-    const [colorOneIsWrong, setColorOneIsWrong] = useState<boolean>(false);
-    const [colorTwoIsWrong, setColorTwoIsWrong] = useState<boolean>(false);
-    const [colorThreeIsWrong, setColorThreeIsWrong] = useState<boolean>(false);
+    
+    const [textIsValid, setTextIsValid] = useState<boolean | null>(null);
+    const [colorOneIsValid, setColorOneIsValid] = useState<boolean | null>(null);
+    const [colorTwoIsValid, setColorTwoIsValid] = useState<boolean | null>(null);
+    const [colorThreeIsValid, setColorThreeIsValid] = useState<boolean | null>(null);
 
     const [colorOne, setColorOne] = useState<string>("")
     const [colorTwo, setColorTwo] = useState<string>("")
     const [colorThree, setColorThree] = useState<string>("")
 
 
-    const handleTextInput = () => {
-        if (text === "color") {
-            setTextIsValid(true)
-            setValidProperty(true)
-            return
-        } else {
-            setIsWrong(true)
-            setTextIsValid(false)
-            setValidProperty(false)
 
-            setTimeout(() => setIsWrong(false), 1500)
-        }
-    }
     const handleColorOne = () => {
         if (colorOne.split(' ').join('') === "setColor('orange')" ||
             colorOne.split(' ').join('') === "setColor(\"orange\")") {
@@ -61,9 +44,8 @@ export const LevelFour = () => {
             setColorOneIsValid(true)
             return
         } else {
-            setColorOneIsWrong(true)
             setColorOneIsValid(false)
-            setTimeout(() => setColorOneIsWrong(false), 1500)
+            setTimeout(() => setColorOneIsValid(null), 1500)
         }
     }
 
@@ -74,9 +56,8 @@ export const LevelFour = () => {
             setColorTwoIsValid(true)
             return
         } else {
-            setColorTwoIsWrong(true)
             setColorTwoIsValid(false)
-            setTimeout(() => setColorTwoIsWrong(false), 1500)
+            setTimeout(() => setColorTwoIsValid(null), 1500)
 
         }
     }
@@ -87,34 +68,25 @@ export const LevelFour = () => {
             setColorThreeIsValid(true)
             return
         } else {
-            setColorThreeIsWrong(true)
             setColorThreeIsValid(false)
-            setTimeout(() => setColorThreeIsWrong(false), 1500)
+            setTimeout(() => setColorThreeIsValid(null), 1500)
 
         }
     }
 
-    const TextInputStyle = textIsValid
-        ? CorrectExerciseTextInput
-        : isWrong
-            ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
-            : ExerciseTextInput;
 
-    const ColorOneInputStyle = colorOneIsValid
-        ? CorrectExerciseTextInput
-        : colorOneIsWrong
-            ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
-            : ExerciseTextInput;
+
+
 
     const ColorTwoInputStyle = colorTwoIsValid
         ? CorrectExerciseTextInput
-        : colorTwoIsWrong
+        : colorTwoIsValid === false
             ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
             : ExerciseTextInput;
 
     const ColorThreeInputStyle = colorThreeIsValid
         ? CorrectExerciseTextInput
-        : colorThreeIsWrong
+        : colorThreeIsValid === false
             ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
             : ExerciseTextInput;
 
@@ -145,92 +117,10 @@ export const LevelFour = () => {
                             </b>
                         </label>
                     </div>
-                    <div>
-                        <div style={CodeContainer}>
-                            <ColoredText
-                                text={[
-                                    ["const [ ", "mediumorchid"],
-                                    ["color", "palegoldenrod"],
-                                    [", ", "white"],
-                                    ["setColor ", "lightblue"],
-                                    ["] ", "mediumorchid"],
-                                    ["= ", "white"],
-                                    ["useState", "lightblue"],
-                                    ["(", "mediumorchid"],
-                                    [`""`, "lightgreen"],
-                                    [")", "mediumorchid"]
-                                ]}
-                            />
-                            <br />
-                            <ColoredText text={[
-                                ["<"],
-                                ["div", "indianred"],
-                                [" style", "orange"],
-                                ["={", "lightblue"],
-                                ["{", "orange"],
-                                [" color", "indianred"],
-                                [":"],
-                                [<input
-                                    type="text"
-                                    placeholder="Cambia la propiedad"
-                                    value={text}
-                                    onChange={(e) => setText(e.target.value)}
-                                    style={TextInputStyle}
-                                />],
-                                ["}", "orange"],
-                                ["}", "lightblue"],
-                                [">"],
-                                ["  Cámbiame el color!  "],
-                                ["<"],
-                                ["div", "indianred"],
-                                ["/>"]
-                            ]}
-                            />
-                        </div>
-                        <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-                            <CustomButton onClick={handleTextInput}>Enviar</CustomButton>
-                        </div>
+                    <div style={{maxWidth: "80%"}}>
+                        <StyleSetter text={text} onChange={setText} textIsValid={textIsValid} setTextIsValid={setTextIsValid} />
                         <div style={{ width: "100%", display: "flex", gap: "1rem", marginTop: "1rem" }}>
-                            <div>
-                                <div style={{ padding: ".3rem" }}>
-                                    <span style={{ ...textStyle }}>Añade "orange" al estado</span>
-                                </div>
-                                <div style={CodeContainer}>
-                                    <ColoredText text={[
-                                        ["<"],
-                                        ["button", "indianred"]
-                                    ]}
-                                    />
-                                    <ColoredText text={[
-                                        ["onClick", "orange"],
-                                        ["={", "lightblue"],
-                                        ["() ", "orange"],
-                                        ["=> ", "mediumorchid"],
-                                        [<input
-                                            type="text"
-                                            placeholder="Cambia el color"
-                                            value={colorOne}
-                                            onChange={(e) => setColorOne(e.target.value)}
-                                            style={{ ...ColorOneInputStyle, width: 150 }}
-                                        />],
-                                        ["}", "lightblue"],
-                                        [">"]
-                                    ]}
-                                    />
-                                    <ColoredText text={[
-                                        ["Probar"]
-                                    ]} />
-                                    <ColoredText text={[
-                                        ["</"],
-                                        ["button", "indianred"],
-                                        [">"]
-                                    ]} />
-
-                                </div>
-                                <div>
-                                    <CustomButton onClick={handleColorOne}>Probar</CustomButton>
-                                </div>
-                            </div>
+                            
                             <div>
                                 <div style={{ padding: ".3rem" }}>
                                     <span style={{ ...textStyle }}>Añade "pink" al estado</span>
@@ -322,7 +212,7 @@ export const LevelFour = () => {
             <div style={rightPanelStyle}>
                 <div
                     {...(
-                        validProperty
+                        textIsValid
                             ? { style: { ...resultBoxStyle, backgroundColor: color !== "" ? color : undefined } }
                             : { style: { ...resultBoxStyle } }
                     )}>
