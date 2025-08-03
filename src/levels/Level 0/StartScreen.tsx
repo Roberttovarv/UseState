@@ -1,5 +1,4 @@
 import { textStyle, leftPanelStyle, containerStyle } from '../../styles/styles';
-import { ColoredText } from '../../components/ColoredText';
 import { StateLine } from './components/StateLine';
 import { HookLine } from './components/HookLine';
 

@@ -82,7 +82,7 @@ export const LevelTwo = () => {
                 </div>
             </div>
             <div style={rightPanelStyle}>
-                <ResultBox  onChange={handleResultBox} header={"Aquí verás lo que pasa cuando cambias el estado inicial."} footer={userInput}/>
+                <ResultBox  onChange={handleResultBox} header={"Aquí verás qué pasa cuando cambias el valor del input una vez lo hayas configurado correctamente"} footer={userInput}/>
             </div>
         </div>
     );

@@ -13,9 +13,9 @@ import {
     CorrectExerciseTextArea,
     WrongExerciseTextArea,
     injectShakeAnimation
-} from "../styles/styles.ts";
-import { ColoredText } from "../components/ColoredText.tsx";
-import { CustomButton } from "../components/CustomButton.tsx";
+} from "../../styles/styles.ts";
+import { ColoredText } from "../../components/ColoredText.tsx";
+import { CustomButton } from "../../components/CustomButton.tsx";
 
 export const LevelFive = () => {
     const [isTurnedOn, setIsTurnedOn] = useState<boolean>(false)

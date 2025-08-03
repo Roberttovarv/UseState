@@ -6,15 +6,16 @@ type ResultBoxProps = {
   userInput?: string, //For LevelOne.tsx
   onChange: (value: string) => void,
   header: string,
-  footer?: string
+  footer?: string,
+  newColor?: string
 }
-export const ResultBox: FC<ResultBoxProps> = ({ userInput, onChange, header, footer }) => {
+export const ResultBox: FC<ResultBoxProps> = ({ userInput, onChange, header, footer, newColor }) => {
   return (
     <div style={resultBoxStyle}>
-      <h2 style={{color: "#ccc"}}>Resultado</h2>
-      <p style={{ fontSize: "18px", color: "white" }}>
+      <h2>Resultado</h2>
+      <p style={{ fontSize: "18px" }}>
         {header}
-        </p>
+      </p>
       <input
         type="text"
         placeholder="Escribe algo..."
@@ -22,7 +23,7 @@ export const ResultBox: FC<ResultBoxProps> = ({ userInput, onChange, header, foo
         onChange={(e) => onChange(e.target.value)}
         style={textInput}
       />
-    {footer && <p>{footer}</p>}
+      {footer && <p style={{ fontWeight: "bold", fontSize: 18, color: newColor ? newColor : "white" }}>{footer}</p>}
     </div>
   )
 }
