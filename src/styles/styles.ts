@@ -129,7 +129,7 @@ export const CorrectExerciseTextInput: CSSProperties = {
     boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
 }
 export const ExerciseTextArea: CSSProperties = {
-    width: "14rem",
+    width: "18rem",
     height: "14rem",
     color: "#ffeb3b",
     fontSize: "1em",
@@ -144,7 +144,7 @@ export const ExerciseTextArea: CSSProperties = {
     boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
 };
 export const WrongExerciseTextArea: CSSProperties = {
-    width: "14rem",
+    width: "18rem",
     height: "14rem",
     color: "#ffeb3b",
     fontSize: "1em",
@@ -159,7 +159,7 @@ export const WrongExerciseTextArea: CSSProperties = {
     boxShadow: "inset 0 0 3px rgba(0,0,0,0.4)",
 };
 export const CorrectExerciseTextArea: CSSProperties = {
-    width: "14rem",
+    width: "18rem",
     height: "14rem",
     color: "#ffeb3b",
     fontSize: "1em",

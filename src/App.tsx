@@ -40,11 +40,11 @@ function App() {
   } else if (level === 4) {
     currentLevel = <LevelFour />
   }
-  // let currentTest = <LevelFive />
+  let currentTest = <LevelFive />
   return (
     <div style={appStyle}>
       <div style={levelContainerStyle}>
-        {currentLevel}
+        {currentTest}
       </div>
       <div
         style={level ? ButtonsContainer : { ...ButtonsContainer, right: "45%" }}

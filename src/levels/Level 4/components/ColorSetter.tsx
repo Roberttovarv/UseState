@@ -1,13 +1,16 @@
 import { ColoredText } from "../../../components/ColoredText";
-import { useState, type FC } from "react"
+import { useState } from "react"
 import { textStyle, CodeContainer, CorrectExerciseTextInput, WrongExerciseTextInput, ExerciseTextInput} from "../../../styles/styles";
 import { CustomButton } from "../../../components/CustomButton";
+import { Normalize } from "../../../styles/Utils";
 
-type ColorSetterProps = {
-
+type Props = {
+    expected: string,
+    onValid: () => void
+    label: string
 }
 
-export const ColorSetter: FC<ColorSetterProps> = () => {
+export const ColorSetter = ({expected, onValid, label}: Props) => {
 
     const [color, setColor] = useState<string>("")
     const [isValid, setIsValid] = useState<boolean | null>(null)
@@ -18,14 +21,21 @@ export const ColorSetter: FC<ColorSetterProps> = () => {
             ? { ...WrongExerciseTextInput, animation: "shake 0.3s ease-in-out" }
             : ExerciseTextInput;
 
-    const sanitize = (str: string) => str.replace(/\s+/g, "").replace(/"/g, "'")
 
-    
+    const handleColor = () => {
+        if (Normalize(color) === `setColor('${expected}')`) {
+            setIsValid(true)
+            onValid()
+            return
+        }
+        setIsValid(false)
+        setTimeout(()=> setIsValid(null), 1500)
+    }
     return (
         <>
             <div>
                 <div style={{ padding: ".3rem" }}>
-                    <span style={textStyle}>Añade "orange" al estado</span>
+                    <span style={textStyle}>{label}</span>
                 </div>
                 <div style={CodeContainer}>
                     <ColoredText text={[
@@ -60,7 +70,7 @@ export const ColorSetter: FC<ColorSetterProps> = () => {
 
                 </div>
                 <div>
-                    <CustomButton onClick={handleColorOne}>Probar</CustomButton>
+                    <CustomButton onClick={handleColor}>Probar</CustomButton>
                 </div>
             </div>
         </>
