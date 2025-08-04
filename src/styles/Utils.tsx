@@ -1,1 +1,8 @@
-export const Normalize = (str: string) =>  str.replace(/\s+/g, "").replace(/"/g, "'")
+export const Normalize = (str: string) => {
+  return str
+    .replace(/"/g, "'")        
+    .replace(/;/g, "")         
+    .match(/[\w]+|[^\s\w]/g)   
+    ?.join(" ") || "";         
+};
+

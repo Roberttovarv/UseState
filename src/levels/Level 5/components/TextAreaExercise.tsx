@@ -2,23 +2,27 @@ import { useState } from "react";
 import { ColoredText } from "../../../components/ColoredText";
 import { textStyle, CodeContainer, ExerciseTextArea, CorrectExerciseTextArea, WrongExerciseTextArea } from "../../../styles/styles";
 import { CustomButton } from "../../../components/CustomButton";
-import { Normalize } from "../../../styles/Utils";
+import { OPTIONS } from "./OPTIONS";
 
-export const TextAreaExercise = () => {
+type Prop = {
+    valid: () => void
+}
+export const TextAreaExercise = ({valid}: Prop) => {
     const [textAreaIsValid, setTextAreaIsValid] = useState<boolean | null>(null)
     const [userText, setUserText] = useState<string>("")
 
     const handleTextArea = () => {
 
-        const isCorrect = (Normalize(textOption1) === Normalize(userText)) || (Normalize(textOption2) === Normalize(userText))
+
+        const isCorrect = Object.values(OPTIONS()).some(option => NormalizeTextArea(option) === NormalizeTextArea(userText))
         if (isCorrect) {
             setTextAreaIsValid(true)
+            valid()
         } else {
             setTextAreaIsValid(false)
             setTimeout(() => setTextAreaIsValid(null), 1500)
         }
     }
-
 
     const textAreaStyle = textAreaIsValid === null
         ? ExerciseTextArea
@@ -30,7 +34,7 @@ export const TextAreaExercise = () => {
     return (
         <div>
             <div style={{ padding: ".3rem" }}>
-                <span style={{ ...textStyle }}>Añade "red" al estado</span>
+                <span style={{ ...textStyle }}>Añade "green" al estado</span>
             </div>
             <div style={CodeContainer}>
                 <ColoredText text={[
@@ -60,5 +64,11 @@ export const TextAreaExercise = () => {
     )
 }
 
-const textOption1 = `if(isTurnedOn){setIsTurnedOn(false)setLightColor("black")setButtonText("encender")}else{setIsTurnedOn(true)setLightColor("green")setButtonText("apagar")}`
-const textOption2 = `if(!isTurnedOn){setIsTurnedOn(true)setLightColor("green")setButtonText("apagar")}else{setIsTurnedOn(false)setLightColor("black")setButtonText("encender")}`
+const NormalizeTextArea = (str: string): string => {
+    return str
+        .replace(/"/g, "'")
+        .replace(/;/g, "")
+        .match(/[\w]+|[^\s\w]/g)
+        ?.join(" ")
+        .trim() || "";
+};
