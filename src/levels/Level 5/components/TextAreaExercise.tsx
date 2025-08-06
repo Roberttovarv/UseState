@@ -68,6 +68,8 @@ const NormalizeTextArea = (str: string): string => {
     return str
         .replace(/"/g, "'")
         .replace(/;/g, "")
+        .replace(/A/g, "a")      
+        .replace(/E/g, "e")
         .match(/[\w]+|[^\s\w]/g)
         ?.join(" ")
         .trim() || "";

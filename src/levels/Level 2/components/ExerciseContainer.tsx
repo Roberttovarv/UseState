@@ -1,9 +1,8 @@
 import { ColoredText } from "../../../components/ColoredText"
 import { CodeContainer, CorrectExerciseTextInput, WrongExerciseTextInput, injectShakeAnimation, ExerciseTextInput } from "../../../styles/styles"
-import type { FC } from "react"
 import { useEffect } from "react"
 
-type ExerciseContainerTypes = {
+type Props = {
     valueText: string,
     setValueText: (value: string) => void,
     valueIsValid: boolean | null,
@@ -13,7 +12,7 @@ type ExerciseContainerTypes = {
 }
 
 
-export const ExerciseContainer: FC<ExerciseContainerTypes> = ({ valueText, setValueText, valueIsValid, onChangeText, onChangeIsValid, setOnChangeText }) => {
+export const ExerciseContainer = ({ valueText, setValueText, valueIsValid, onChangeText, onChangeIsValid, setOnChangeText }: Props) => {
     const ValueStyle = valueIsValid
         ? CorrectExerciseTextInput
         : valueIsValid === false
