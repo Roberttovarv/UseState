@@ -27,9 +27,9 @@ export const ColorSetter = ({ expected, onValid, label }: Props) => {
     : ExerciseTextInput;
 
   const handleColor = () => {
-    console.log(userInput)
-    console.log(expected)
-    if (Normalize(userInput) === `setColor('${expected}')`) {
+    console.log(Normalize(userInput))
+    console.log(Normalize(`setColor('${expected}')`))
+    if (Normalize(userInput) === Normalize(`setColor('${expected}')`)) {
       setIsValid(true);
       onValid();
       return;
