@@ -3,6 +3,7 @@ import { StateLine } from "./components/StateLine";
 import { HookLine } from "./components/HookLine";
 
 export const StartScreen = () => (
+  
   <div style={containerStyle}>
     <div style={{ ...leftPanelStyle, width: "100%" }}>
       <div>

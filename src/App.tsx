@@ -1,5 +1,6 @@
 
 import type { CSSProperties } from "react";
+import React from "react";
 import { CustomButton } from "./components/CustomButton.tsx";
 import { LevelOne } from "./levels/Level 1/LevelOne.tsx"
 import { StartScreen } from "./levels/Level 0/StartScreen.tsx";
@@ -8,59 +9,17 @@ import { LevelTwo } from "./levels/Level 2/LevelTwo.tsx";
 import { LevelThree } from "./levels/Level 3/LevelThree.tsx";
 import { LevelFour } from "./levels/Level 4/LevelFour.tsx";
 import { LevelFive } from "./levels/Level 5/LevelFive.tsx";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/Routes.tsx";
 
 
 function App() {
-  const [level, setLevel] = useState<number>(0)
-  const handleLevel = (action: number) => {
-    if (action === 1) {
-      if (level === 0) {
-        return
-      }
-      setLevel(level -1)
-    }
-        if (action === 2) {
-      if (level === 5) {
-        return
-      }
-      setLevel(level + 1)
-    }
-  }
-
-  let currentLevel;
-
-  if (level === 0) {
-    currentLevel = <StartScreen />;
-  } else if (level === 1) {
-    currentLevel = <LevelOne />;
-  } else if (level === 2) {
-    currentLevel = <LevelTwo />;
-  } else if (level === 3) {
-    currentLevel = <LevelThree />
-  } else if (level === 4) {
-    currentLevel = <LevelFour />
-  } else if (level === 5) {
-    currentLevel = <LevelFive />
-  }
-  let currentTest = <LevelFive />
   return (
-    <div style={appStyle}>
-      <div style={levelContainerStyle}>
-        {currentLevel}
-      </div>
-      <div
-        style={level ? ButtonsContainer : { ...ButtonsContainer, right: "45%" }}
-      >
-        <CustomButton
-          onClick={() => handleLevel(1)}
-        >Anterior
-        </CustomButton>
-        <CustomButton
-          onClick={() => handleLevel(2)}
-        >Siguiente
-        </CustomButton>
-      </div>
-    </div>
+    <React.StrictMode>
+      <RouterProvider router={router} >
+
+      </RouterProvider>
+    </React.StrictMode>
 
   );
 }
