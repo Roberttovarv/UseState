@@ -12,7 +12,7 @@ export const containerStyle: CSSProperties = {
 
 export const leftPanelStyle: CSSProperties = {
     width: "50%",
-    padding: ".5rem 2rem",
+    padding: ".5rem 5rem",
     overflowY: "auto",
     borderRight: "1px solid #333",
     backgroundColor: "#2c2c2c",
@@ -21,7 +21,7 @@ export const leftPanelStyle: CSSProperties = {
 
 export const rightPanelStyle: CSSProperties = {
     width: "50%",
-    padding: ".5rem 2rem",
+    padding: ".5rem 5rem",
     overflowY: "auto",
     backgroundColor: "#1e1e1e",
     display: "flex",
@@ -47,6 +47,7 @@ export const resultBoxStyle: CSSProperties = {
 
 export const textStyle: CSSProperties = {
     color: "#cccccc",
+    maxWidth: "80%"
 };
 
 export const textArea: CSSProperties = {
@@ -84,7 +85,7 @@ export const buttonStyle: CSSProperties = {
     transition: "background-color 0.3s ease"
 }
 export const ExerciseTextInput: CSSProperties = {
-    width: 200,
+    width: "11.5rem",
     color: "#ffeb3b",
     height: ".7rem",
     fontSize: "1em",
@@ -99,7 +100,7 @@ export const ExerciseTextInput: CSSProperties = {
 }
 
 export const WrongExerciseTextInput: CSSProperties = {
-    width: 200,
+    width: "11.5rem",
     color: "#ffeb3b",
     height: ".7rem",
     fontSize: "1em",
@@ -115,7 +116,7 @@ export const WrongExerciseTextInput: CSSProperties = {
 }
 
 export const CorrectExerciseTextInput: CSSProperties = {
-    width: 200,
+    width: "11.5rem",
     color: "#ffeb3b",
     height: ".7rem",
     fontSize: "1em",

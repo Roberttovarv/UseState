@@ -25,7 +25,7 @@ export const StateLine3: FC<StateLine3Props> = ({color, onChange}) => {
                     placeholder="Cambia el color"
                     value={color}
                     onChange={(e) => onChange(e.target.value)}
-                    style={ExerciseTextInput}
+                    style={{...ExerciseTextInput, width: "8.5rem"}}
                 />, undefined],
                 [`"`, "lightgreen"],
                 [")", "mediumorchid"]

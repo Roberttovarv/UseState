@@ -6,7 +6,7 @@ type Props = {
   setText: (value: string) => void;
 };
 
-export const StateLine = ({ text, setText }: Props) => (
+export const StateLine1 = ({ text, setText }: Props) => (
     <ColoredText
       text={[
         ["const [ ", "mediumorchid"],

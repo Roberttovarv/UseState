@@ -7,10 +7,10 @@ import {
   textStyle,
 } from "../../styles/styles.ts";
 
-import { CustomButton } from "../../components/CustomButton.tsx";
 import { CodeLine } from "./components/CodeLine.tsx";
-import { ExerciseContainer } from "./components/ExerciseContainer.tsx";
+import { ExerciseContainer2 } from "./components/ExerciseContainer2.tsx";
 import { ResultBox } from "../../components/ResultBox.tsx";
+import { ConsolasBold } from "../../components/ConsolasBold.tsx";
 
 export const LevelTwo = () => {
   const [valueText, setValueText] = useState<string>("");
@@ -80,22 +80,19 @@ export const LevelTwo = () => {
         <div>
           <div style={{ marginBottom: 20 }}>
             <label style={textStyle}>
-              <b>Ahora, escribe tu código:</b>
+              <ConsolasBold>Ahora, escribe tu código:</ConsolasBold>
             </label>
           </div>
-          <div style={{ width: "80%" }}>
-            <ExerciseContainer
-              valueText={valueText}
-              setValueText={setValueText}
-              valueIsValid={valueIsValid}
-              onChangeText={onChangeText}
-              onChangeIsValid={onChangeIsValid}
-              setOnChangeText={setOnChangeText}
-            />
-            <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-              <CustomButton onClick={handleUserExercise}>Probar</CustomButton>
-            </div>
-          </div>
+
+          <ExerciseContainer2
+            valueText={valueText}
+            setValueText={setValueText}
+            valueIsValid={valueIsValid}
+            onChangeText={onChangeText}
+            onChangeIsValid={onChangeIsValid}
+            setOnChangeText={setOnChangeText}
+            handleUserExercise={handleUserExercise}
+          />
         </div>
       </div>
       <div style={rightPanelStyle}>

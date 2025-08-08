@@ -4,9 +4,9 @@ export const CodeBox = () => {
     return (
         <>
             <ColoredText text={[["<"], ["div", "indianred"], [">"]]} />
-            <ColoredText text={[["..."]]} />
+            <ColoredText text={[["   ..."]]} />
             <ColoredText text={[
-                ["<"],
+                ["   <"],
                 ["p", "indianred"],
                 [" style", "orange"],
                 ["={", "lightblue"],
@@ -21,13 +21,13 @@ export const CodeBox = () => {
             />
             <ColoredText
                 text={[
-                    ["   {", "orange"],
+                    ["      {", "orange"],
                     ["userInput", "palegoldenrod"],
                     ["}", "orange"]
                 ]}
             />
             <ColoredText text={[
-                ["<"],
+                ["   <"],
                 ["p", "indianred"],
                 ["/>"]
             ]} />

@@ -7,7 +7,7 @@ export const HookLine = () => (
         ["{", "orange"],
         [" useState ", "indianred"],
         ["} ", "orange"],
-        ["from", "mediumorchid"],
+        ["from ", "mediumorchid"],
         ['"react"', "lightgreen"],
         [";"],
       ]}

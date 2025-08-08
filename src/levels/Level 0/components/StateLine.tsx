@@ -4,9 +4,9 @@ export const StateLine = () => (
   <ColoredText
     text={[
       ["const [ ", "mediumorchid"],
-      ["color", "palegoldenrod"],
+      ["userInput", "palegoldenrod"],
       [", ", "white"],
-      ["setColor ", "lightblue"],
+      ["setUserInput ", "lightblue"],
       ["] ", "mediumorchid"],
       ["= ", "white"],
       ["useState", "lightblue"],

@@ -1,6 +1,6 @@
 import { ColoredText } from "../../../components/ColoredText";
 
-export const InputTextExample = () => (
+export const InputTextExample1 = () => (
   <>
     <ColoredText text={[["<"], ["input ", "indianred"]]} />
     <ColoredText

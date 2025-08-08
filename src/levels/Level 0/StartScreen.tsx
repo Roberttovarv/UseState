@@ -1,9 +1,9 @@
 import { textStyle, leftPanelStyle, containerStyle } from "../../styles/styles";
 import { StateLine } from "./components/StateLine";
 import { HookLine } from "./components/HookLine";
+import { ConsolasBold } from "../../components/ConsolasBold";
 
 export const StartScreen = () => (
-  
   <div style={containerStyle}>
     <div style={{ ...leftPanelStyle, width: "100%" }}>
       <div>
@@ -28,8 +28,7 @@ export const StartScreen = () => (
 
         <h3>¿Cuál es su sintaxis?</h3>
         <p style={textStyle}>
-          Para declarar un estado, primero hay que importar el hook{" "}
-          <b>useState</b>:
+          Para declarar un estado, primero hay que importar el hook <ConsolasBold>useState</ConsolasBold>
         </p>
         <div>
           <HookLine />
@@ -42,22 +41,22 @@ export const StartScreen = () => (
           Aquí:
           <ul>
             <li>
-              <b>userInput</b> es la variable de estado
+              <ConsolasBold>userInput</ConsolasBold> es la variable de estado
             </li>
             <li>
-              <b>setUserInput</b> es la función que usamos para actualizarla.
+              <ConsolasBold>setUserInput</ConsolasBold> es la función que usamos para actualizarla.
             </li>
             <li>
-              <b>useState("")</b> define el valor inicial del estado. En este
-              caso, un string vacío, pero podríamos poner <b>"Hello World"</b> o
+              <ConsolasBold>useState("")</ConsolasBold> define el valor inicial del estado. En este
+              caso, un string vacío, pero podríamos poner <b style={{fontFamily: "consolas"}}>"Hello World"</b> o
               cualquier otro valor.
             </li>
           </ul>
         </p>
         <h3>¿Y ahora qué?</h3>
         <span style={textStyle}>
-          ¡Ya tenemos configurado nuestro estado! Ahora toca usarlo, porque de
-          momento solo lo declaramos, pero de momento no hacemos nada con él. 😊
+          ¡Ya tenemos configurado nuestro estado! Ahora toca usarlo, porque por
+          ahora solo lo hemos declarado, pero todavía no hacemos nada con él. 😊
         </span>
       </div>
     </div>
