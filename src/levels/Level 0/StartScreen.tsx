@@ -5,8 +5,8 @@ import { ConsolasBold } from "../../components/ConsolasBold";
 
 export const StartScreen = () => (
   <div style={containerStyle}>
-    <div style={{ ...leftPanelStyle, width: "100%" }}>
-      <div>
+    <div style={{...leftPanelStyle, display:"flex", justifyContent: "center"}}>
+      <div style={{width:"65rem"}}>
         <h2>¿Qué es un State en React?</h2>
         <span style={textStyle}>
           En React, el state es una forma de guardar información que puede

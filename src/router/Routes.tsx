@@ -5,10 +5,12 @@ import { LevelTwo } from "../levels/Level 2/LevelTwo";
 import { LevelThree } from "../levels/Level 3/LevelThree";
 import { LevelFour } from "../levels/Level 4/LevelFour";
 import { LevelFive } from "../levels/Level 5/LevelFive";
+import { LandingPage } from "../levels/Landing Page/LandinPage";
 
 export const router = createBrowserRouter(createRoutesFromElements(
     <>
-        <Route path="/" element={<StartScreen />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/level/0" element={<StartScreen />} />
         <Route path="level/1" element={<LevelOne />}/>
         <Route path="level/2" element={<LevelTwo />}/>
         <Route path="level/3" element={<LevelThree />}/>
