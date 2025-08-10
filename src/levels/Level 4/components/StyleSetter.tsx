@@ -37,52 +37,59 @@ export const StyleSetter = ({
   };
   return (
     <>
-      <div style={CodeContainer}>
-        <ColoredText
-          text={[
-            ["const [ ", "mediumorchid"],
-            ["color", "palegoldenrod"],
-            [", ", "white"],
-            ["setColor ", "lightblue"],
-            ["] ", "mediumorchid"],
-            ["= ", "white"],
-            ["useState", "lightblue"],
-            ["(", "mediumorchid"],
-            [`""`, "lightgreen"],
-            [")", "mediumorchid"],
-          ]}
-        />
-        <br />
-        <ColoredText
-          text={[
-            ["<"],
-            ["div", "indianred"],
-            [" style", "orange"],
-            ["={", "lightblue"],
-            ["{", "orange"],
-            [" color", "indianred"],
-            [":"],
-            [
-              <input
-                type="text"
-                placeholder="Cambia la propiedad"
-                value={text}
-                onChange={(e) => onChange(e.target.value)}
-                style={TextInputStyle}
-              />,
-            ],
-            ["}", "orange"],
-            ["}", "lightblue"],
-            [">"],
-            ["  Cámbiame el color!  "],
-            ["<"],
-            ["div", "indianred"],
-            ["/>"],
-          ]}
-        />
-      </div>
-      <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
-        <CustomButton onClick={handleTextInput}>Enviar</CustomButton>
+      <div style={{ width: "45rem" }}>
+        <div style={CodeContainer}>
+          <ColoredText
+            text={[
+              ["const [ ", "mediumorchid"],
+              ["color", "palegoldenrod"],
+              [", ", "white"],
+              ["setColor ", "lightblue"],
+              ["] ", "mediumorchid"],
+              ["= ", "white"],
+              ["useState", "lightblue"],
+              ["(", "mediumorchid"],
+              [`""`, "lightgreen"],
+              [")", "mediumorchid"],
+            ]}
+          />
+          <br />
+          <ColoredText
+            text={[
+              ["<"],
+              ["div", "indianred"],
+              [" style", "orange"],
+              ["={", "lightblue"],
+              ["{", "orange"],
+              [" backgroundColor", "indianred"],
+              [":"],
+              [
+                <input
+                  type="text"
+                  placeholder="Cambia la propiedad"
+                  value={text}
+                  onChange={(e) => onChange(e.target.value)}
+                  style={TextInputStyle}
+                />,
+              ],
+              ["}", "orange"],
+              ["}", "lightblue"],
+              [">"],
+            ]}
+          />
+          <ColoredText
+            text={[
+              ["   Cámbiame el color!"],
+              ["<"],
+              ["div", "indianred"],
+              ["/>"],
+            ]}
+          />
+          <ColoredText text={[["div", "indianred"], ["/>"]]} />
+        </div>
+        <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
+          <CustomButton onClick={handleTextInput}>Enviar</CustomButton>
+        </div>
       </div>
     </>
   );

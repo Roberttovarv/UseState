@@ -1,5 +1,4 @@
 import type { CSSProperties, FC, MouseEventHandler, ReactNode } from "react";
-import { buttonStyle } from "../styles/styles";
 
 type CustomButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -24,4 +23,14 @@ export const CustomButton: FC<CustomButtonProps> = ({
         </button>
     )
 }
-
+export const buttonStyle: CSSProperties = {
+    marginTop: "1rem",
+    padding: "0.3rem 0.8rem",
+    fontSize: "14px",
+    backgroundColor: "#2c2c2c",
+    border: "1px solid #666",
+    borderRadius: "4px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease"
+}

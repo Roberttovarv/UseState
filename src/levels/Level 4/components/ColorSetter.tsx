@@ -27,8 +27,8 @@ export const ColorSetter = ({ expected, onValid, label }: Props) => {
     : ExerciseTextInput;
 
   const handleColor = () => {
-    console.log(Normalize(userInput))
-    console.log(Normalize(`setColor('${expected}')`))
+    console.log(Normalize(userInput));
+    console.log(Normalize(`setColor('${expected}')`));
     if (Normalize(userInput) === Normalize(`setColor('${expected}')`)) {
       setIsValid(true);
       onValid();
@@ -47,10 +47,15 @@ export const ColorSetter = ({ expected, onValid, label }: Props) => {
           <ColoredText text={[["<"], ["button", "indianred"]]} />
           <ColoredText
             text={[
-              ["onClick", "orange"],
+              ["   onClick", "orange"],
               ["={", "lightblue"],
               ["() ", "orange"],
               ["=> ", "mediumorchid"],
+            ]}
+          />
+          <ColoredText
+            text={[
+              ["   "],
               [
                 <input
                   type="text"
@@ -60,15 +65,17 @@ export const ColorSetter = ({ expected, onValid, label }: Props) => {
                   style={{ ...ColorInputStyle, width: 150 }}
                 />,
               ],
-              ["}", "lightblue"],
-              [">"],
             ]}
           />
-          <ColoredText text={[["Probar"]]} />
+          <ColoredText text={[["   }", "lightblue"]]} />
+          <ColoredText text={[[">"]]} />
+          <ColoredText text={[["   Probar"]]} />
           <ColoredText text={[["</"], ["button", "indianred"], [">"]]} />
         </div>
-        <div>
-          <CustomButton onClick={handleColor}>Probar</CustomButton>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <CustomButton style={{ marginLeft: "auto" }} onClick={handleColor}>
+            Probar
+          </CustomButton>
         </div>
       </div>
     </>

@@ -7,7 +7,6 @@ import {
   textStyle,
 } from "../../styles/styles.ts";
 
-import { CustomButton } from "../../components/CustomButton.tsx";
 import { ExerciseContainer3 } from "./components/ExerciseContainer3.tsx";
 import { ResultBox } from "../../components/ResultBox.tsx";
 import { ConsolasBold } from "../../components/ConsolasBold.tsx";
