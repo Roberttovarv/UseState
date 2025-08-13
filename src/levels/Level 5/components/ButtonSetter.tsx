@@ -8,7 +8,7 @@ import {
   ExerciseTextInput,
 } from "../../../styles/styles";
 import { CustomButton } from "../../../components/CustomButton";
-import { ButtonTextString } from "./strings/ButtonTextString";
+import { ButtonTextString } from "./Strings.tsx";
 
 type Props = {
   onValid: () => void;
