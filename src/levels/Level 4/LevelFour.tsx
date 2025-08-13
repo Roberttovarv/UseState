@@ -10,8 +10,6 @@ import {
 } from "../../styles/styles.ts";
 
 import { ColoredText } from "../../components/ColoredText.tsx";
-import { StyleSetter } from "./components/StyleSetter.tsx";
-import { ColorSetter } from "./components/ColorSetter.tsx";
 import { ConsolasBold } from "../../components/ConsolasBold.tsx";
 import { ExercisesContainer4 } from "./components/ExercisesContainer4.tsx";
 

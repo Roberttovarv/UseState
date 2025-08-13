@@ -12,10 +12,11 @@ import { LightColorString } from "./components/strings/LightColorString.tsx";
 import { IsTunerOnString } from "./components/strings/IsTunerOnString.tsx";
 import { TrueString } from "./components/strings/TrueString.tsx";
 import { FalseString } from "./components/strings/FalseString.tsx";
-import { ToggleLightText } from "./components/ToggleLightText.tsx";
+import { ToggleLightString } from "./components/strings/ToggleLightString.tsx";
 import { TextAreaExercise } from "./components/TextAreaExercise.tsx";
 import { ButtonSetter } from "./components/ButtonSetter.tsx";
 import { LightPanel } from "./components/LightPanel.tsx";
+import { ConsolasBold } from "../../components/ConsolasBold.tsx";
 
 export const LevelFive = () => {
   const [isTurnedOn, setIsTurnedOn] = useState<boolean>(false);
@@ -55,13 +56,13 @@ export const LevelFive = () => {
           </p>
           <p style={textStyle}>
             {" "}
-            En éste módulo usaremos la función <ToggleLightText /> para cambiar
+            En éste módulo usaremos la función <ToggleLightString /> para cambiar
             los "encender" y "apagar" una luz.
           </p>
           <p style={textStyle}>
             Dentro de dicha función tendremos que cambiar los valores de{" "}
             <IsTunerOnString />, <LightColorString /> y <ButtonTextString />{" "}
-            <b>—en ese orden—</b>.
+            <ConsolasBold>—en ese orden—</ConsolasBold>
           </p>
           <p style={textStyle}>
             Donde si <IsTunerOnString /> es <TrueString />, debemos cambiar su
@@ -69,10 +70,8 @@ export const LevelFive = () => {
           </p>
         </div>
         <div>
-          <div style={{ marginBottom: 20 }}>
-            <label style={textStyle}>
-              <b>Pruébalo aquí:</b>
-            </label>
+          <div>
+              <ConsolasBold>Pruébalo aquí:</ConsolasBold>
           </div>
         </div>
         <div
