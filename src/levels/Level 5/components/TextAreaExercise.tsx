@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ColoredText } from "../../../components/ColoredText";
-import { textStyle, CodeContainer, ExerciseTextArea, CorrectExerciseTextArea, WrongExerciseTextArea } from "../../../styles/styles";
+import { CodeContainer, ExerciseTextArea, CorrectExerciseTextArea, WrongExerciseTextArea } from "../../../styles/styles";
 import { CustomButton } from "../../../components/CustomButton";
 import { OPTIONS } from "./OPTIONS";
 

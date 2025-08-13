@@ -7,12 +7,7 @@ import {
   textStyle,
   injectShakeAnimation,
 } from "../../styles/styles.ts";
-import { ButtonTextString } from "./components/strings/ButtonTextString.tsx";
-import { LightColorString } from "./components/strings/LightColorString.tsx";
-import { IsTunerOnString } from "./components/strings/IsTunerOnString.tsx";
-import { TrueString } from "./components/strings/TrueString.tsx";
-import { FalseString } from "./components/strings/FalseString.tsx";
-import { ToggleLightString } from "./components/strings/ToggleLightString.tsx";
+import { ButtonTextString, LightColorString, IsTunerOnString, TrueString, FalseString, ToggleLightString } from "./components/Strings.tsx";
 import { TextAreaExercise } from "./components/TextAreaExercise.tsx";
 import { ButtonSetter } from "./components/ButtonSetter.tsx";
 import { LightPanel } from "./components/LightPanel.tsx";

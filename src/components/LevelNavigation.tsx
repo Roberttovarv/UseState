@@ -34,18 +34,16 @@ export const LevelNavigation = () => {
         gap: "1rem",
       }}
     >
-      {!isLanding && (
-        <Link to={prevLevel}>
-          <CustomButton>Anterior</CustomButton>
-        </Link>
-      )}
-      {nextLevel && (
-        <Link to={nextLevel}>
-          <CustomButton>
-            {isLanding ? "Vamos!" : "Siguiente"}
-          </CustomButton>
-        </Link>
-      )}
+      {prevLevel && (
+  <Link to={prevLevel}>
+    <CustomButton>Anterior</CustomButton>
+  </Link>
+)}
+{nextLevel && (
+  <Link to={nextLevel}>
+    <CustomButton>{isLanding ? "Vamos!" : "Siguiente"}</CustomButton>
+  </Link>
+)}
     </div>
   );
 };
