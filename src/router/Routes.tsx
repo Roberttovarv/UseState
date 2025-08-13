@@ -12,7 +12,7 @@ export const router = createBrowserRouter(createRoutesFromElements(
     <>
     <Route element={<MainLayout />} >
 
-        <Route path="/" element={<LandingPage />} />
+        <Route index element={<LandingPage />} />
         <Route path="/level/0" element={<StartScreen />} />
         <Route path="level/1" element={<LevelOne />}/>
         <Route path="level/2" element={<LevelTwo />}/>

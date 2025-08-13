@@ -34,7 +34,6 @@ export const TextAreaExercise = ({valid}: Prop) => {
     return (
         <div>
             <div style={{ padding: ".3rem" }}>
-                <span style={{ ...textStyle }}>Crea la lógica de la función</span>
             </div>
             <div style={CodeContainer}>
                 <ColoredText text={[
@@ -45,7 +44,7 @@ export const TextAreaExercise = ({valid}: Prop) => {
                 />
                 <ColoredText text={[
                     [<textarea
-                        placeholder={``}
+                        placeholder={`Crea la lógica de la función`}
                         style={textAreaStyle}
                         value={userText}
                         onChange={(e) => setUserText(e.target.value)}

@@ -6,7 +6,6 @@ import {
   rightPanelStyle,
   textStyle,
   injectShakeAnimation,
-  ExerciseTextArea,
 } from "../../styles/styles.ts";
 import { ButtonTextString } from "./components/strings/ButtonTextString.tsx";
 import { LightColorString } from "./components/strings/LightColorString.tsx";
@@ -49,7 +48,7 @@ export const LevelFive = () => {
     <div style={containerStyle}>
       <div style={leftPanelStyle}>
         <h2>5 - Manejo de estados dentro de variables:</h2>
-        <div style={{ maxWidth: "80%" }}>
+        <div>
           <p style={textStyle}>
             Los estados pueden ser manejados sin tener que escribirlos
             manualmente todo el tiempo, para ello utilizaremos variables que nos
@@ -80,18 +79,16 @@ export const LevelFive = () => {
           style={{
             width: "100%",
             display: "flex",
-            gap: "1rem",
+            gap: "3rem",
             marginTop: "1rem",
           }}
         >
           <TextAreaExercise valid={() => setTextAreaVerified(true)} />
           <div style={instructions}>
-            <span>
               Crea un condicional en el que si isTurnedOn es true, cambie el
               estado isTurnedOn a false, el estado color a "black" y buttonText
               a "encender", si no, el valor de estos serían: true, "green" y
               "apagar"
-            </span>
           </div>
         </div>
         <div
@@ -123,12 +120,11 @@ export const LevelFive = () => {
 };
 const instructions: CSSProperties = {
   width: "18rem",
-    height: "14rem",
-    padding: "0.25em 0.8em",
-    margin: 5,
+    height: "auto",
+    padding: "0.50em 0.8em",
     alignItems: "center",
     borderRadius: "7px",
     fontFamily: "consolas",
     backgroundColor: "#1e1e1e",
-    marginTop: "4.5rem"
+    margin: "2.5rem 0",
 }

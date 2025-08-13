@@ -5,11 +5,23 @@ const levels = [0, 1, 2, 3, 4, 5];
 
 export const LevelNavigation = () => {
   const location = useLocation();
-  const currentLevel = parseInt(location.pathname.split("/").pop() || "0");
 
-  const prevLevel = currentLevel > 0 ? `/level/${currentLevel - 1}` : null;
-  const nextLevel =
-    currentLevel < levels.length - 1 ? `/level/${currentLevel + 1}` : null;
+  const isLanding = location.pathname === "/";
+
+  const currentLevel = !isLanding
+    ? parseInt(location.pathname.split("/").pop() || "0")
+    : undefined;
+
+  const prevLevel =
+    currentLevel !== undefined && currentLevel > 0
+      ? `/level/${currentLevel - 1}`
+      : undefined;
+
+  const nextLevel = isLanding
+    ? `/level/0`
+    : currentLevel !== undefined && currentLevel < levels.length - 1
+    ? `/level/${currentLevel + 1}`
+    : undefined;
 
   return (
     <div
@@ -22,14 +34,16 @@ export const LevelNavigation = () => {
         gap: "1rem",
       }}
     >
-      {prevLevel && (
+      {!isLanding && (
         <Link to={prevLevel}>
           <CustomButton>Anterior</CustomButton>
         </Link>
       )}
       {nextLevel && (
         <Link to={nextLevel}>
-          <CustomButton>{!prevLevel ? "Vamos!" : "Siguiente"}</CustomButton>
+          <CustomButton>
+            {isLanding ? "Vamos!" : "Siguiente"}
+          </CustomButton>
         </Link>
       )}
     </div>
