@@ -9,7 +9,6 @@ import {
   injectShakeAnimation,
 } from "../../styles/styles.ts";
 
-import { ColoredText } from "../../components/ColoredText.tsx";
 import { ConsolasBold } from "../../components/ConsolasBold.tsx";
 import { ExercisesContainer4 } from "./components/ExercisesContainer4.tsx";
 
@@ -30,46 +29,44 @@ export const LevelFour = () => {
         <p style={textStyle}>
           En la sección dos aprendimos que podíamos actualizar un estado
           mediante la propiedad{" "}
-          <ColoredText
-            text={[["onChange", "lightgreen"]]}
-            style={{ display: "inline-flex" }}
-          />
-          , Sin embargo, también podemos usar otra propiedad llamada{" "}
-          <ColoredText
-            text={[["onClick", "lightgreen"]]}
-            style={{ display: "inline-flex" }}
-          />
+          <ConsolasBold color="lightgreen" backgroundColor={true}>
+            onChange
+          </ConsolasBold>
+          , sin embargo, también podemos usar otra propiedad llamada{" "}
+          <ConsolasBold color="lightgreen" backgroundColor={true}>
+            onClick
+          </ConsolasBold>
           , que a diferencia de{" "}
-          <ColoredText
-            text={[["onChange", "lightgreen"]]}
-            style={{ display: "inline-flex" }}
-          />
-          , se puede implementar en casi todos los elementos HTML de nuestra
-          página. Aunque comúnmente se aplica en botones o en divs con estilos
-          que simulan botones.
+          <ConsolasBold color="lightgreen" backgroundColor={true}>
+            onChange
+          </ConsolasBold>
+          , se puede aplicar en casi todos los elementos HTML de nuestra página.
+          Aunque comúnmente se aplica en botones o en elementos{" "}
+          <ConsolasBold backgroundColor={true}>{"<div>"}</ConsolasBold> con
+          estilos que simulan botones.
         </p>
         <p style={textStyle}>
-          Para éste ejercicio implementaremos el uso de{" "}
-          <ColoredText
-            text={[["onClick", "lightgreen"]]}
-            style={{ display: "inline-flex" }}
-          />{" "}
-          en tres botones que permitirán cambiar el color del div que aparece a
-          la derecha. Cada botón deberá ser configurado correctamente con sus
-          respectivas propiedades para que la interacción funcione como se
-          espera.
+          Para este ejercicio implementaremos el uso de{" "}
+          <ConsolasBold color="lightgreen" backgroundColor={true}>
+            onClick
+          </ConsolasBold>{" "}
+          en tres botones que permitirán cambiar el color del{" "}
+          <ConsolasBold backgroundColor={true}>{"<div>"}</ConsolasBold> que
+          aparece a la derecha. Cada botón deberá ser configurado correctamente
+          con sus respectivas propiedades para que la interacción funcione
+          correctamente.
         </p>
         <div>
           <div style={{ marginBottom: 20, width: "80%" }}>
             <label style={textStyle}>
               <ConsolasBold>
-                Primero añade el estado de color al estilo y luego prueba
-                distintos colores añadiendo funciones flecha para cambiar el
+                Primero, añade el estado color al estilo del elemento y luego
+                prueba distintos colores usando funciones flecha para cambiar el
                 valor del estado.
               </ConsolasBold>{" "}
             </label>
           </div>
-          <div style={{ maxWidth: "80%" }}>
+          <div style={{ maxWidth: "80%", marginBottom: "rem" }}>
             <ExercisesContainer4
               text={text}
               setText={setText}
@@ -77,13 +74,14 @@ export const LevelFour = () => {
               setTextIsValid={setTextIsValid}
               setColor={setColor}
             />
-            
-            <p style={{ ...textStyle, fontFamily: "consolas" }}>
-              <ConsolasBold>Observación:</ConsolasBold> Cuando añades una
-              función con argumentos a la propiedad de un componente, siempre
-              debes hacerlo mediante una función flecha.
-            </p>
           </div>
+          <p
+            style={{ ...textStyle, fontFamily: "consolas", marginTop: "1rem" }}
+          >
+            <ConsolasBold>Observación:</ConsolasBold> Cuando añades una función
+            con argumentos a la propiedad de un componente, siempre debes
+            hacerlo mediante una función flecha.
+          </p>
         </div>
       </div>
       <div style={rightPanelStyle}>

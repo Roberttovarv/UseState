@@ -45,9 +45,7 @@ export const TextAreaExercise = ({valid}: Prop) => {
                 />
                 <ColoredText text={[
                     [<textarea
-                        placeholder={`Crea un condicional en el que si isTurnedOn es true, 
-                            cambie el estado isTurnedOn a false, el estado color a "lightgreen" y buttonText a "apagar", 
-                            sino, el valor de estos serían: true, "black" y "encender"`}
+                        placeholder={``}
                         style={textAreaStyle}
                         value={userText}
                         onChange={(e) => setUserText(e.target.value)}

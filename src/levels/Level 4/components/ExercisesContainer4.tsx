@@ -1,5 +1,6 @@
 import { StyleSetter } from "./StyleSetter";
 import { ColorSetter } from "./ColorSetter";
+import { ConsolasBold } from "../../../components/ConsolasBold";
 
 type Props = {
   text: string;
@@ -23,12 +24,14 @@ export const ExercisesContainer4 = ({
         textIsValid={textIsValid}
         setTextIsValid={setTextIsValid}
       />
+      <div style={{margin: "2rem 0 1rem 0"}}>
+      <span>Usa la función <ConsolasBold backgroundColor={true}>setColor()</ConsolasBold> para cambiar los estados.</span>
+      </div>
       <div
         style={{
           width: "100%",
           display: "flex",
           gap: "1rem",
-          marginTop: "3rem",
           maxWidth: "45rem"
         }}
       >

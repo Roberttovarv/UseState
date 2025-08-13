@@ -44,7 +44,7 @@ export const ExerciseContainer2 = ({
   }, []);
 
   return (
-    <div style={{ width: "45rem" }}>
+    <div style={{ maxWidth: "45rem" }}>
       <div style={CodeContainer}>
         <ColoredText text={[["<"], ["input ", "indianred"]]} />
         <ColoredText

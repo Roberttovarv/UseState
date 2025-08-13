@@ -27,18 +27,17 @@ export const LevelThree = () => {
         </p>
         <p style={textStyle}>
           Para tomar otro ejemplo, cambiaremos el color del texto que asignamos
-          en el input del al lado. usaremos un estado llamado <b>color</b>, el
-          cual será actualizado con <b>setColor</b>.
+          en el input que está al lado. Usaremos un estado llamado <ConsolasBold backgroundColor={true}>color</ConsolasBold>, que actualizaremos con <ConsolasBold backgroundColor={true}>setColor</ConsolasBold>
         </p>
         <p style={textStyle}>
-          La variable <b>color</b> la usaremos dentro del estilo del texto para
+          La variable <ConsolasBold backgroundColor={true}>color</ConsolasBold> la utilizaremos dentro del estilo del texto para
           ir modificándolo a medida que vayamos variando los estados.
         </p>
 
         <div>
           <div style={{ marginBottom: 20 }}>
             <label style={textStyle}>
-              <ConsolasBold>Cambia los colores del estado</ConsolasBold>
+              <ConsolasBold>Vamos a cambiar los colores del estado:</ConsolasBold>
             </label>
           </div>
           <ExerciseContainer3

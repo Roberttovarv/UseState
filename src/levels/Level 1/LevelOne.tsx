@@ -20,20 +20,24 @@ export const LevelOne = () => {
       <div style={leftPanelStyle}>
         <h2>1 - Definiremos nuestro estado inicial:</h2>
         <p style={textStyle}>
-          Creamos un estado llamado <ConsolasBold>userInput</ConsolasBold>, que
+          Creamos un estado llamado <ConsolasBold backgroundColor={true}>userInput</ConsolasBold>, que
           se actualiza mediante la función{" "}
-          <ConsolasBold>setUserInput</ConsolasBold>.
+          <ConsolasBold backgroundColor={true}>setUserInput</ConsolasBold>.
         </p>
         <p style={textStyle}>
-          Para que el campo de entrada <ConsolasBold>{"<input>"}</ConsolasBold>{" "}
-          refleje y actualice este estado, utilizamos dos atributos clave:
+          Para que el campo de entrada{" "}
+          <ConsolasBold backgroundColor={true}>{"<input>"}</ConsolasBold> refleje y actualice este
+          estado, utilizamos dos atributos clave:
         </p>
         <p style={textStyle}>
-          En el elemento <ConsolasBold>{"<input>"}</ConsolasBold>, usamos el
-          atributo value para que su contenido siempre refleje el valor actual
-          de userInput. <br />
-          Esto asegura que el valor mostrado en el input y el estado estén
-          sincronizados.
+          En el elemento <ConsolasBold backgroundColor={true}>{"<input>"}</ConsolasBold>, usamos la
+          propiedad <ConsolasBold backgroundColor={true}>value</ConsolasBold> para que su contenido
+          siempre refleje el valor actual de{" "}
+          <ConsolasBold backgroundColor={true}>userInput</ConsolasBold>.
+        </p>
+        <p>
+          Esto asegura que el valor mostrado en el input y el estado permanezcan
+          sincronizados
         </p>
 
         <div>

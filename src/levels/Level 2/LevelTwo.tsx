@@ -62,16 +62,18 @@ export const LevelTwo = () => {
         <p style={textStyle}>
           Para que el estado cambie a medida que escribes, utilizamos la
           propiedad onChange. Cada vez que el usuario escribe algo nuevo, esta
-          función se dispara y recibe un evento. Ese evento tiene una propiedad
-          llamada target, que apunta al elemento que generó el cambio, en este
-          caso, el input. Y dentro de ese target está el value, que es justo el
-          texto que el usuario ha tecleado.
+          función se dispara, y recibe un evento. Ese evento tiene una propiedad
+          llamada <ConsolasBold backgroundColor={true} >target</ConsolasBold>, que apunta al elemento
+          que generó el cambio, en este caso, el{" "}
+          <ConsolasBold backgroundColor={true} >{"<input>"}</ConsolasBold>. Dentro de ese target está{" "}
+          <ConsolasBold backgroundColor={true} >value</ConsolasBold>, que contiene el texto que el
+          usuario ha escrito.
         </p>
         <p style={textStyle}>
           Con esa información, simplemente llamamos a <CodeLine />, que
-          actualiza nuestro estado con el nuevo texto. Así, el input y el estado
-          van siempre sincronizados, y cada letra que escribes se refleja en el
-          estado.
+          actualiza nuestro estado con el nuevo texto. Así, el{" "}
+          <ConsolasBold backgroundColor={true} >{"<input>"}</ConsolasBold> y el estado van siempre
+          sincronizados, y cada letra que escribes se refleja en el estado.
         </p>
         <p style={textStyle}>
           Puedes probar primero en el recuadro de al lado antes de escribir tu

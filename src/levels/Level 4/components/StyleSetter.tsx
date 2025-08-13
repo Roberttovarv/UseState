@@ -37,7 +37,7 @@ export const StyleSetter = ({
   };
   return (
     <>
-      <div style={{ width: "45rem" }}>
+      <div style={{ maxWidth: "45rem" }}>
         <div style={CodeContainer}>
           <ColoredText
             text={[
@@ -80,12 +80,10 @@ export const StyleSetter = ({
           <ColoredText
             text={[
               ["   Cámbiame el color!"],
-              ["<"],
-              ["div", "indianred"],
-              ["/>"],
+
             ]}
           />
-          <ColoredText text={[["div", "indianred"], ["/>"]]} />
+          <ColoredText text={[["</"],["div", "indianred"], [">"]]} />
         </div>
         <div style={{ margin: 0, display: "flex", justifyContent: "end" }}>
           <CustomButton onClick={handleTextInput}>Enviar</CustomButton>

@@ -8,7 +8,7 @@ type Props = {
     setUserInput: (value: string) => void
 }
 export const ContainerArea1 = ({text, setText, setUserInput}: Props) => (
-  <div style={{ width: "45rem" }}>
+  <div style={{ maxWidth: "45rem" }}>
     <div style={CodeContainer}>
       <StateLine1 text={text} setText={setText} />
       <br />

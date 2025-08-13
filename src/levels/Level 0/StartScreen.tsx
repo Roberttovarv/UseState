@@ -5,14 +5,15 @@ import { ConsolasBold } from "../../components/ConsolasBold";
 
 export const StartScreen = () => (
   <div style={containerStyle}>
-    <div style={{...leftPanelStyle, display:"flex", justifyContent: "center"}}>
-      <div style={{width:"65rem"}}>
+    <div
+      style={{ ...leftPanelStyle, display: "flex", justifyContent: "center" }}
+    >
+      <div style={{ width: "65rem" }}>
         <h2>¿Qué es un State en React?</h2>
         <span style={textStyle}>
           En React, el state es una forma de guardar información que puede
-          cambiar con el tiempo. React utiliza ese estado para actualizar
-          automáticamente la interfaz de usuario cuando dicha información
-          cambia.
+          cambiar con el tiempo. React utiliza ese estado para actualizar la
+          interfaz de usuario automáticamente cuando la información cambia.
         </span>
         <h3>¿Por qué nos interesa utilizarlo?</h3>
         <ul>
@@ -21,14 +22,15 @@ export const StartScreen = () => (
             o entradas de texto.
           </li>
           <li>
-            Cuando se actualiza el state, React vuelve a renderizar el
+            Cuando se actualiza el estado, React vuelve a renderizar el
             componente para mostrar el nuevo valor.
           </li>
         </ul>
 
         <h3>¿Cuál es su sintaxis?</h3>
         <p style={textStyle}>
-          Para declarar un estado, primero hay que importar el hook <ConsolasBold>useState</ConsolasBold>
+          Para declarar un estado, primero hay que importar el hook{" "}
+          <ConsolasBold>useState</ConsolasBold>
         </p>
         <div>
           <HookLine />
@@ -41,14 +43,16 @@ export const StartScreen = () => (
           Aquí:
           <ul>
             <li>
-              <ConsolasBold>userInput</ConsolasBold> es la variable de estado
+              <ConsolasBold backgroundColor={true} >userInput:</ConsolasBold> la variable de estado
             </li>
             <li>
-              <ConsolasBold>setUserInput</ConsolasBold> es la función que usamos para actualizarla.
+              <ConsolasBold backgroundColor={true} >setUserInput:</ConsolasBold> la función que usamos
+              para actualizarla.
             </li>
             <li>
-              <ConsolasBold>useState("")</ConsolasBold> define el valor inicial del estado. En este
-              caso, un string vacío, pero podríamos poner <b style={{fontFamily: "consolas"}}>"Hello World"</b> o
+              <ConsolasBold backgroundColor={true} >useState("")</ConsolasBold> define el valor inicial
+              del estado. En este caso, un string vacío, pero podríamos poner{" "}
+              <b style={{ fontFamily: "consolas" }}>"Hello World"</b> o
               cualquier otro valor.
             </li>
           </ul>

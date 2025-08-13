@@ -27,9 +27,9 @@ export const CodeBox = () => {
                 ]}
             />
             <ColoredText text={[
-                ["   <"],
+                ["   </"],
                 ["p", "indianred"],
-                ["/>"]
+                [">"]
             ]} />
             <ColoredText text={[["</"], ["div", "indianred"], [">"]]} />
 
