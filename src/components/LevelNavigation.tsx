@@ -31,7 +31,7 @@ const prevLevel =
       style={{
         position: "fixed",
         bottom: "20px",
-        left: "50.3%",
+        left: "50.2%",
         transform: "translateX(-50%)",
         display: "flex",
         gap: "1rem",

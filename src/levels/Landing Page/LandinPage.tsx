@@ -1,4 +1,5 @@
 import { textStyle, leftPanelStyle, containerStyle } from "../../styles/styles";
+import logo from "/src/assets/logo.svg"
 
 import { ConsolasBold } from "../../components/ConsolasBold";
 
@@ -49,7 +50,7 @@ export const LandingPage = () => (
             rel="noopener noreferrer"
           >
             <img
-              src="src/assets/logo.svg"
+              src={logo}
               width={400}
               height={400}
               title="Tech Monkey"
