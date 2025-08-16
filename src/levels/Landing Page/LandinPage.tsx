@@ -32,24 +32,33 @@ export const LandingPage = () => (
             </li>
           </ul>
 
-          <p style={{ ...textStyle
-                      }}>
+          <p style={{ ...textStyle }}>
             Cada lección combina explicaciones simples con prácticas inmediatas,
             para que no solo entiendas la teoría, sino que también puedas ver
             los cambios en acción.
           </p>
-          <p style={{ ...textStyle
-                      }}>
+          <p style={{ ...textStyle }}>
             Perfecto para principiantes que quieren dominar React desde cero y
             desarrollar aplicaciones dinámicas paso a paso.
           </p>
         </div>
-        <img
-          src="src/assets/logo.svg"
-          width={400}
-          height={400}
-          style={{ display: "block", margin: "0 auto", paddingTop: "4rem" }}
-        />{" "}
+        <div style={{ display: "flex", flexDirection: "column", margin: "0 auto", paddingTop: "4rem", alignItems: "center" }}>
+          <a
+            href="https://www.github.com/Roberttovarv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="src/assets/logo.svg"
+              width={400}
+              height={400}
+              title="Tech Monkey"
+            />
+          </a>
+          <span style={{ textAlign: "center" }}>
+            <ConsolasBold backgroundColor={true}>By Robert Tovar</ConsolasBold>
+          </span>
+        </div>
       </div>
     </div>
   </div>

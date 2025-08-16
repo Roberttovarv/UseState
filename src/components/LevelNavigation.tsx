@@ -12,10 +12,13 @@ export const LevelNavigation = () => {
     ? parseInt(location.pathname.split("/").pop() || "0")
     : undefined;
 
-  const prevLevel =
-    currentLevel !== undefined && currentLevel > 0
-      ? `/level/${currentLevel - 1}`
-      : undefined;
+const prevLevel =
+  currentLevel !== undefined
+    ? currentLevel === 0
+      ? "/" 
+      : `/level/${currentLevel - 1}`
+    : undefined;
+
 
   const nextLevel = isLanding
     ? `/level/0`
