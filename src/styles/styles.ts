@@ -47,7 +47,6 @@ export const resultBoxStyle: CSSProperties = {
 
 export const textStyle: CSSProperties = {
     color: "#cccccc",
-    maxWidth: "80%"
 };
 
 export const textArea: CSSProperties = {
