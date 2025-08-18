@@ -12,13 +12,12 @@ export const LevelNavigation = () => {
     ? parseInt(location.pathname.split("/").pop() || "0")
     : undefined;
 
-const prevLevel =
-  currentLevel !== undefined
-    ? currentLevel === 0
-      ? "/" 
-      : `/level/${currentLevel - 1}`
-    : undefined;
-
+  const prevLevel =
+    currentLevel !== undefined
+      ? currentLevel === 0
+        ? "/"
+        : `/level/${currentLevel - 1}`
+      : undefined;
 
   const nextLevel = isLanding
     ? `/level/0`
@@ -34,19 +33,20 @@ const prevLevel =
         left: "50.2%",
         transform: "translateX(-50%)",
         display: "flex",
-        gap: "1rem",
+        gap: "4rem",
+        zIndex: 1000,
       }}
     >
       {prevLevel && (
-  <Link to={prevLevel}>
-    <CustomButton>Anterior</CustomButton>
-  </Link>
-)}
-{nextLevel && (
-  <Link to={nextLevel}>
-    <CustomButton>{isLanding ? "¡Vamos!" : "Siguiente"}</CustomButton>
-  </Link>
-)}
+        <Link to={prevLevel}>
+          <CustomButton>Anterior</CustomButton>
+        </Link>
+      )}
+      {nextLevel && (
+        <Link to={nextLevel}>
+          <CustomButton>{isLanding ? "¡Vamos!" : "Siguiente"}</CustomButton>
+        </Link>
+      )}
     </div>
   );
 };

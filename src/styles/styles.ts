@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 
+const BOTTOM_SAFE_SPACE = "calc(5rem + env(safe-area-inset-bottom))";
+
 export const containerStyle: CSSProperties = {
     display: "flex",
     justifyContent: "center",
@@ -17,6 +19,7 @@ export const leftPanelStyle: CSSProperties = {
     borderRight: "1px solid #333",
     backgroundColor: "#2c2c2c",
     color: "#f0f0f0",
+    paddingBottom: BOTTOM_SAFE_SPACE
 };
 
 export const rightPanelStyle: CSSProperties = {
@@ -28,6 +31,7 @@ export const rightPanelStyle: CSSProperties = {
     justifyContent: "center",
     alignItems: "center",
     color: "#f0f0f0",
+    paddingBottom: BOTTOM_SAFE_SPACE
 };
 
 export const resultBoxStyle: CSSProperties = {
@@ -168,6 +172,7 @@ export const CodeContainer: CSSProperties = {
     borderRadius: 5,
     padding: ".5rem"
 }
+
 
 export const injectShakeAnimation = () => {
     const styleId = "shake-animation-style";
