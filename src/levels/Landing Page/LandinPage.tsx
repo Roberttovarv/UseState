@@ -45,14 +45,14 @@ export const LandingPage = () => (
         </div>
         <div style={{ display: "flex", flexDirection: "column", margin: "0 auto", paddingTop: "4rem", alignItems: "center" }}>
           <a
-            href="https://www.github.com/Roberttovarv"
+            href="https://www.linkedin.com/in/Roberttovarv"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
               src={logo}
-              width={400}
-              height={400}
+              width={200}
+              height={200}
               title="Tech Monkey"
             />
           </a>

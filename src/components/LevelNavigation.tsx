@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 
-const levels = [0, 1, 2, 3, 4, 5];
+const levels = [0, 1, 2, 3, 4, 5, 6];
 
 export const LevelNavigation = () => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const prevLevel =
 )}
 {nextLevel && (
   <Link to={nextLevel}>
-    <CustomButton>{isLanding ? "Vamos!" : "Siguiente"}</CustomButton>
+    <CustomButton>{isLanding ? "¡Vamos!" : "Siguiente"}</CustomButton>
   </Link>
 )}
     </div>
