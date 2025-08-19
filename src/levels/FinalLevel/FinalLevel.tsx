@@ -23,19 +23,14 @@ export const FinalPage = () => (
 
           <p style={textStyle}></p>
           <p style={textStyle}>
-            Accede a este repositorio de{" "}
-            <a href="https://4geeks.com" target="_blank">
-              <ConsolasBold>4Geeks Academy</ConsolasBold>{" "}
-            </a>
-            y haz un fork{" "}
+            Accede a este repositorio de mi propiedad y haz un fork{" "}
             <a
-              href="https://github.com/4GeeksAcademy/react-hello"
+              href="https://github.com/Roberttovarv/TrafficLightExercise"
               target="_blank"
             >
               <ConsolasBold backgroundColor={true}>
-                https://github.com/4GeeksAcademy/react-hello
+                https://github.com/Roberttovarv/TrafficLightExercise
               </ConsolasBold>
-              
             </a>
           </p>
           <h3>Simulación de un Semáforo</h3>
@@ -69,7 +64,7 @@ export const FinalPage = () => (
             Observación: Solo debes trabajar en el componente{" "}
             <ConsolasBold>Home.jsx</ConsolasBold> de la ruta{" "}
             <ConsolasBold backgroundColor={true}>
-              react-hello/src/js/components/Home.jsx
+              TrafficLightExercise/src/App.jsx
             </ConsolasBold>
           </span>
           <h4>Bonus</h4>
