@@ -62,7 +62,7 @@ export const FinalPage = () => (
 
           <span style={textStyle}>
             Observación: Solo debes trabajar en el componente{" "}
-            <ConsolasBold>Home.jsx</ConsolasBold> de la ruta{" "}
+            <ConsolasBold>App.jsx</ConsolasBold> de la ruta{" "}
             <ConsolasBold backgroundColor={true}>
               TrafficLightExercise/src/App.jsx
             </ConsolasBold>
