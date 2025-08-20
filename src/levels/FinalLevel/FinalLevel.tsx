@@ -67,18 +67,7 @@ export const FinalPage = () => (
               TrafficLightExercise/src/App.jsx
             </ConsolasBold>
           </span>
-          <h4>Bonus</h4>
-          <ul style={textStyle}>
-            <li>
-              Crea un botón que, al hacer clic en él, alterna el color
-              seleccionado del semáforo entre rojo, verde y amarillo.
-            </li>
-            <li>
-              Tener un botón que al hacer clic en él, añada un color extra
-              "púrpura" al semáforo.
-            </li>
-          </ul>
-        </div>
+          </div>
         <div
           style={{
             display: "flex",
