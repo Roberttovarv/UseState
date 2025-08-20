@@ -73,7 +73,7 @@ export const FinalPage = () => (
             display: "flex",
             flexDirection: "column",
             margin: "0 auto",
-            paddingTop: "1rem",
+            paddingTop: "2.5rem",
             alignItems: "center",
           }}
         >
@@ -85,7 +85,7 @@ export const FinalPage = () => (
             <img src={logo} width={200} title="Tech Monkey" />
           </a>
           <span style={{ textAlign: "center" }}>
-            <ConsolasBold backgroundColor={true}>By Robert Tovar</ConsolasBold>
+            <ConsolasBold backgroundColor={true}>¡Recuerda seguirme!</ConsolasBold>
           </span>
         </div>
       </div>
