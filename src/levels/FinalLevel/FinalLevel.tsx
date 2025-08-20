@@ -17,7 +17,7 @@ export const FinalPage = () => (
             manejando variables de distintos tipos y usándolas dentro de
             funciones.
           </p>
-          <h3 style={{ ...textStyle, textAlign: "center" }}>
+          <h3 style={{textAlign: "center" }}>
             Te tengo un reto:{" "}
           </h3>
 
@@ -42,7 +42,7 @@ export const FinalPage = () => (
             </a>{" "}
             con tres luces: <ConsolasBold>roja, amarilla y verde.</ConsolasBold>{" "}
           </p>
-          <h4>Requisitos principales</h4>
+          <h4 style={textStyle}>Requisitos principales</h4>
           <ul style={textStyle}>
             <li>El semáforo debe mostrar las tres luces.</li>
             <li>
